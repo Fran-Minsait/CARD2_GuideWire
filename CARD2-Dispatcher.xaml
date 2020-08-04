@@ -10,10 +10,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1172,951</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1172,957</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Get_in_queue_and_self_assign_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="23">
+    <scg:List x:TypeArguments="x:String" Capacity="46">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -37,10 +37,11 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Globalization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="46">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="24">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -64,6 +65,7 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Get in queue and self assign activities" sap:VirtualizedContainerService.HintSize="646,892" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -244,7 +246,7 @@
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                                 </ActivityAction.Argument>
-                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1003,3887" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1003,3626" sap2010:WorkflowViewState.IdRef="Sequence_16">
                                   <Sequence.Variables>
                                     <Variable x:TypeArguments="sd:DataTable" Name="ElementsInCoda" />
                                     <Variable x:TypeArguments="x:String" Name="index" />
@@ -317,15 +319,15 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:BuildDataTable>
-                                  <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each | Page of table" sap:VirtualizedContainerService.HintSize="961,3165" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Enumerable.Range(1,intLastPage)]">
+                                  <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each | Page of table" sap:VirtualizedContainerService.HintSize="961,2904" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Enumerable.Range(1,intLastPage)]">
                                     <ui:ForEach.Body>
                                       <ActivityAction x:TypeArguments="x:Int32">
                                         <ActivityAction.Argument>
                                           <DelegateInArgument x:TypeArguments="x:Int32" Name="page" />
                                         </ActivityAction.Argument>
-                                        <ui:InterruptibleDoWhile sap2010:Annotation.AnnotationText="If an assignation is made, the current data in the loaded page may change, and in doing so new elements that should be assign may appear at the end.&#xA;In those cases, this reading+assignation is repeted until no assignation is made (boolAsignedOne is false)." Condition="[boolAsignedOne]" DisplayName="Do While | Any assignation is made" sap:VirtualizedContainerService.HintSize="925,3032" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_5">
+                                        <ui:InterruptibleDoWhile sap2010:Annotation.AnnotationText="If an assignation is made, the current data in the loaded page may change, and in doing so new elements that should be assign may appear at the end.&#xA;In those cases, this reading+assignation is repeted until no assignation is made (boolAsignedOne is false)." Condition="[boolAsignedOne]" DisplayName="Do While | Any assignation is made" sap:VirtualizedContainerService.HintSize="925,2771" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_5">
                                           <ui:InterruptibleDoWhile.Body>
-                                            <Sequence DisplayName="Check table and self-assign" sap:VirtualizedContainerService.HintSize="889,2825" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                            <Sequence DisplayName="Check table and self-assign" sap:VirtualizedContainerService.HintSize="889,2564" sap2010:WorkflowViewState.IdRef="Sequence_30">
                                               <Sequence.Variables>
                                                 <Variable x:TypeArguments="x:Boolean" Name="boolRowExists" />
                                                 <Variable x:TypeArguments="x:Int32" Default="0" Name="intMaxRowInTable" />
@@ -465,13 +467,13 @@
                                                   </ActivityAction>
                                                 </ui:ForEach.Body>
                                               </ui:ForEach>
-                                              <ui:ForEachRow CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Check rows and self-assigns the ones that coincide with the criteria. Adds them to Queue if passed.&#xA;The load of the queue is made after checking the line, and not when self-assigning them." DataTable="[ElementsInCoda]" DisplayName="For Each Row | Assign lines" sap:VirtualizedContainerService.HintSize="847,1907" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                                              <ui:ForEachRow CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Check rows and self-assigns the ones that coincide with the criteria. Adds them to Queue if passed.&#xA;The load of the queue is made after checking the line, and not when self-assigning them." DataTable="[ElementsInCoda]" DisplayName="For Each Row | Assign lines" sap:VirtualizedContainerService.HintSize="847,1646" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                                                 <ui:ForEachRow.Body>
                                                   <ActivityAction x:TypeArguments="sd:DataRow">
                                                     <ActivityAction.Argument>
                                                       <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                                                     </ActivityAction.Argument>
-                                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="797,1718" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="797,1457" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                                       <Sequence.Variables>
                                                         <Variable x:TypeArguments="x:String" Name="strTypeOfClaim" />
                                                       </Sequence.Variables>
@@ -520,44 +522,24 @@
                                                           <InArgument x:TypeArguments="x:String">[row(4).ToString]</InArgument>
                                                         </Assign.Value>
                                                       </Assign>
-                                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="755,234" sap2010:WorkflowViewState.IdRef="CommentOut_14">
-                                                        <ui:CommentOut.Body>
-                                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,156" sap2010:WorkflowViewState.IdRef="Sequence_55">
-                                                            <sap:WorkflowViewStateService.ViewState>
-                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                              </scg:Dictionary>
-                                                            </sap:WorkflowViewStateService.ViewState>
-                                                            <Assign DisplayName="Get claim type by Oggeto" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_34">
-                                                              <Assign.To>
-                                                                <OutArgument x:TypeArguments="x:String">[strTypeOfClaim]</OutArgument>
-                                                              </Assign.To>
-                                                              <Assign.Value>
-                                                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(strOggetto.Equals("CS_01 Caricare Documentazione CAI1") OrElse
-	strOggetto.Equals("CS_09 Caricare Documentazione CAI2") OrElse
-	strOggetto.Equals("CS_13 Caricare Documentazione NA/NE") OrElse
-	strOggetto.Equals("CS_14 Caricare Documentazione CAI1 vs NA/NE") OrElse
-	strOggetto.Equals("CS_15 Caricare Documentazione NA/NE"), "Active",
-If(strOggetto.Equals("CONTESTA NE") OrElse
-	strOggetto.Equals("CONTESTA DANNO") OrElse
-	strOggetto.Equals("CONTESTA RESPO") OrElse
-	strOggetto.Equals("CONTESTA NA"), "Pasive", String.Empty))]</InArgument>
-                                                              </Assign.Value>
-                                                            </Assign>
-                                                          </Sequence>
-                                                        </ui:CommentOut.Body>
-                                                      </ui:CommentOut>
-                                                      <Assign DisplayName="Get claim type by Oggeto" sap:VirtualizedContainerService.HintSize="755,60" sap2010:WorkflowViewState.IdRef="Assign_51">
+                                                      <Assign DisplayName="Get claim type by Oggeto" sap:VirtualizedContainerService.HintSize="755,64" sap2010:WorkflowViewState.IdRef="Assign_34">
                                                         <Assign.To>
                                                           <OutArgument x:TypeArguments="x:String">[strTypeOfClaim]</OutArgument>
                                                         </Assign.To>
                                                         <Assign.Value>
-                                                          <InArgument x:TypeArguments="x:String">[TODO]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(strOggetto.Equals("CS_01 Caricare Documentazione CAI1") OrElse
+	strOggetto.Equals("CS_09 Caricare Documentazione CAI2") OrElse
+	strOggetto.Equals("CS_14 Caricare Documentazione CAI1 vs NA/NE") OrElse
+	strOggetto.Equals("CS_15 Caricare Documentazione NA/NE"),
+	"Active",  String.Empty)]</InArgument>
                                                         </Assign.Value>
                                                       </Assign>
-                                                      <If Condition="[not(String.IsNullOrEmpty(strTypeOfClaim))]" DisplayName="If | Claim is Active or Passive" sap:VirtualizedContainerService.HintSize="755,752" sap2010:WorkflowViewState.IdRef="If_2">
+                                                      <If Condition="[not(String.IsNullOrEmpty(strTypeOfClaim))]" DisplayName="If | Claim is Active or Passive" sap:VirtualizedContainerService.HintSize="755,761" sap2010:WorkflowViewState.IdRef="If_2">
                                                         <If.Then>
-                                                          <Sequence DisplayName="Check and load in Queue" sap:VirtualizedContainerService.HintSize="376,605" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                                          <Sequence DisplayName="Check and load in Queue" sap:VirtualizedContainerService.HintSize="376,614" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                                            <Sequence.Variables>
+                                                              <Variable x:TypeArguments="x:String" Name="auxStrDate" />
+                                                            </Sequence.Variables>
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -593,7 +575,7 @@ If(strOggetto.Equals("CONTESTA NE") OrElse
                                                                 <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                                                               </Assign.Value>
                                                             </Assign>
-                                                            <Sequence DisplayName="Queue load" sap:VirtualizedContainerService.HintSize="334,305" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                                            <Sequence DisplayName="Queue load" sap:VirtualizedContainerService.HintSize="334,314" sap2010:WorkflowViewState.IdRef="Sequence_29">
                                                               <Sequence.Variables>
                                                                 <Variable x:TypeArguments="s:DateTime" Name="dateQueueDeadline" />
                                                               </Sequence.Variables>
@@ -611,32 +593,15 @@ If(strOggetto.Equals("CONTESTA NE") OrElse
                                                                   <InArgument x:TypeArguments="x:String" xml:space="preserve">["CARD2 - " +  strEvento]</InArgument>
                                                                 </Assign.Value>
                                                               </Assign>
-                                                              <ui:CommentOut DisplayName="(TODO: soon)" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="CommentOut_11">
-                                                                <ui:CommentOut.Body>
-                                                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_43">
-                                                                    <sap:WorkflowViewStateService.ViewState>
-                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                                      </scg:Dictionary>
-                                                                    </sap:WorkflowViewStateService.ViewState>
-                                                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_35">
-                                                                      <Assign.To>
-                                                                        <OutArgument x:TypeArguments="s:DateTime">[dateQueueDeadline]</OutArgument>
-                                                                      </Assign.To>
-                                                                      <Assign.Value>
-                                                                        <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(strScadenza,TODO,CultureInfo.InvariantCulture)]</InArgument>
-                                                                      </Assign.Value>
-                                                                    </Assign>
-                                                                  </Sequence>
-                                                                </ui:CommentOut.Body>
-                                                                <sap:WorkflowViewStateService.ViewState>
-                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                                  </scg:Dictionary>
-                                                                </sap:WorkflowViewStateService.ViewState>
-                                                              </ui:CommentOut>
-                                                              <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[strQueueReference]">
+                                                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_35">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="s:DateTime">[dateQueueDeadline]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(strScadenza, "dd/MM/yy",Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" DueDate="[dateQueueDeadline]" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[strQueueReference]">
                                                                 <ui:AddQueueItem.ItemInformation>
                                                                   <InArgument x:TypeArguments="x:String" x:Key="Activity type">[strTypeOfClaim]</InArgument>
                                                                   <InArgument x:TypeArguments="x:String" x:Key="ClaimNumber">[strRelativoA]</InArgument>
@@ -813,7 +778,7 @@ If(strOggetto.Equals("CONTESTA NE") OrElse
                                   <av:PointCollection x:Key="ConnectorLocation">300,755.5 300,804.5</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW Select CAI1" sap:VirtualizedContainerService.HintSize="434,750" sap2010:WorkflowViewState.IdRef="BrowserScope_5" InformativeScreenshot="234815adfd7de92804e88a998a524e73" Selector="&lt;html title='*Guidewire ClaimCenter*' /&gt;">
+                              <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW Select CAI1" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="BrowserScope_5" InformativeScreenshot="234815adfd7de92804e88a998a524e73" Selector="&lt;html title='*Guidewire ClaimCenter*' /&gt;">
                                 <ui:BrowserScope.Body>
                                   <ActivityAction x:TypeArguments="x:Object">
                                     <ActivityAction.Argument>
@@ -893,13 +858,13 @@ If(strOggetto.Equals("CONTESTA NE") OrElse
                                       <av:Size x:Key="ShapeSize">200,51</av:Size>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW Assign (1)" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="BrowserScope_6" Selector="&lt;html title='*Guidewire ClaimCenter*' /&gt;">
+                                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW Assign (1)" sap:VirtualizedContainerService.HintSize="1037,3734" sap2010:WorkflowViewState.IdRef="BrowserScope_6" Selector="&lt;html title='*Guidewire ClaimCenter*' /&gt;">
                                     <ui:BrowserScope.Body>
                                       <ActivityAction x:TypeArguments="x:Object">
                                         <ActivityAction.Argument>
                                           <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                                         </ActivityAction.Argument>
-                                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1003,3887" sap2010:WorkflowViewState.IdRef="Sequence_68">
+                                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1003,3626" sap2010:WorkflowViewState.IdRef="Sequence_68">
                                           <Sequence.Variables>
                                             <Variable x:TypeArguments="sd:DataTable" Name="ElementsInCoda" />
                                             <Variable x:TypeArguments="x:String" Name="index" />
@@ -972,15 +937,15 @@ If(strOggetto.Equals("CONTESTA NE") OrElse
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
                                           </ui:BuildDataTable>
-                                          <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each | Page of table" sap:VirtualizedContainerService.HintSize="961,3165" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[Enumerable.Range(1,intLastPage)]">
+                                          <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each | Page of table" sap:VirtualizedContainerService.HintSize="961,2904" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[Enumerable.Range(1,intLastPage)]">
                                             <ui:ForEach.Body>
                                               <ActivityAction x:TypeArguments="x:Int32">
                                                 <ActivityAction.Argument>
                                                   <DelegateInArgument x:TypeArguments="x:Int32" Name="page" />
                                                 </ActivityAction.Argument>
-                                                <ui:InterruptibleDoWhile sap2010:Annotation.AnnotationText="If an assignation is made, the current data in the loaded page may change, and in doing so new elements that should be assign may appear at the end.&#xA;In those cases, this reading+assignation is repeted until no assignation is made (boolAsignedOne is false)." Condition="[boolAsignedOne]" DisplayName="Do While | Any assignation is made" sap:VirtualizedContainerService.HintSize="925,3032" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_8">
+                                                <ui:InterruptibleDoWhile sap2010:Annotation.AnnotationText="If an assignation is made, the current data in the loaded page may change, and in doing so new elements that should be assign may appear at the end.&#xA;In those cases, this reading+assignation is repeted until no assignation is made (boolAsignedOne is false)." Condition="[boolAsignedOne]" DisplayName="Do While | Any assignation is made" sap:VirtualizedContainerService.HintSize="925,2771" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_8">
                                                   <ui:InterruptibleDoWhile.Body>
-                                                    <Sequence DisplayName="Check table and self-assign" sap:VirtualizedContainerService.HintSize="889,2825" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                                                    <Sequence DisplayName="Check table and self-assign" sap:VirtualizedContainerService.HintSize="889,2564" sap2010:WorkflowViewState.IdRef="Sequence_65">
                                                       <Sequence.Variables>
                                                         <Variable x:TypeArguments="x:Boolean" Name="boolRowExists" />
                                                         <Variable x:TypeArguments="x:Int32" Default="0" Name="intMaxRowInTable" />
@@ -1120,13 +1085,13 @@ If(strOggetto.Equals("CONTESTA NE") OrElse
                                                           </ActivityAction>
                                                         </ui:ForEach.Body>
                                                       </ui:ForEach>
-                                                      <ui:ForEachRow CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Check rows and self-assigns the ones that coincide with the criteria. Adds them to Queue if passed.&#xA;The load of the queue is made after checking the line, and not when self-assigning them." DataTable="[ElementsInCoda]" DisplayName="For Each Row | Assign lines" sap:VirtualizedContainerService.HintSize="847,1907" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                                                      <ui:ForEachRow CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Check rows and self-assigns the ones that coincide with the criteria. Adds them to Queue if passed.&#xA;The load of the queue is made after checking the line, and not when self-assigning them." DataTable="[ElementsInCoda]" DisplayName="For Each Row | Assign lines" sap:VirtualizedContainerService.HintSize="847,1646" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
                                                         <ui:ForEachRow.Body>
                                                           <ActivityAction x:TypeArguments="sd:DataRow">
                                                             <ActivityAction.Argument>
                                                               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                                                             </ActivityAction.Argument>
-                                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="797,1718" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="797,1457" sap2010:WorkflowViewState.IdRef="Sequence_64">
                                                               <Sequence.Variables>
                                                                 <Variable x:TypeArguments="x:String" Name="strTypeOfClaim" />
                                                               </Sequence.Variables>
@@ -1175,44 +1140,21 @@ If(strOggetto.Equals("CONTESTA NE") OrElse
                                                                   <InArgument x:TypeArguments="x:String">[row(4).ToString]</InArgument>
                                                                 </Assign.Value>
                                                               </Assign>
-                                                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="755,234" sap2010:WorkflowViewState.IdRef="CommentOut_15">
-                                                                <ui:CommentOut.Body>
-                                                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,156" sap2010:WorkflowViewState.IdRef="Sequence_60">
-                                                                    <sap:WorkflowViewStateService.ViewState>
-                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                                      </scg:Dictionary>
-                                                                    </sap:WorkflowViewStateService.ViewState>
-                                                                    <Assign DisplayName="Get claim type by Oggeto" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_63">
-                                                                      <Assign.To>
-                                                                        <OutArgument x:TypeArguments="x:String">[strTypeOfClaim]</OutArgument>
-                                                                      </Assign.To>
-                                                                      <Assign.Value>
-                                                                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(strOggetto.Equals("CS_01 Caricare Documentazione CAI1") OrElse
-	strOggetto.Equals("CS_09 Caricare Documentazione CAI2") OrElse
-	strOggetto.Equals("CS_13 Caricare Documentazione NA/NE") OrElse
-	strOggetto.Equals("CS_14 Caricare Documentazione CAI1 vs NA/NE") OrElse
-	strOggetto.Equals("CS_15 Caricare Documentazione NA/NE"), "Active",
-If(strOggetto.Equals("CONTESTA NE") OrElse
-	strOggetto.Equals("CONTESTA DANNO") OrElse
-	strOggetto.Equals("CONTESTA RESPO") OrElse
-	strOggetto.Equals("CONTESTA NA"), "Pasive", String.Empty))]</InArgument>
-                                                                      </Assign.Value>
-                                                                    </Assign>
-                                                                  </Sequence>
-                                                                </ui:CommentOut.Body>
-                                                              </ui:CommentOut>
-                                                              <Assign DisplayName="Get claim type by Oggeto" sap:VirtualizedContainerService.HintSize="755,60" sap2010:WorkflowViewState.IdRef="Assign_64">
+                                                              <Assign DisplayName="Get claim type by Oggeto" sap:VirtualizedContainerService.HintSize="755,64" sap2010:WorkflowViewState.IdRef="Assign_69">
                                                                 <Assign.To>
                                                                   <OutArgument x:TypeArguments="x:String">[strTypeOfClaim]</OutArgument>
                                                                 </Assign.To>
                                                                 <Assign.Value>
-                                                                  <InArgument x:TypeArguments="x:String">[TODO]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(strOggetto.Equals("CS_01 Caricare Documentazione CAI1") OrElse
+	strOggetto.Equals("CS_09 Caricare Documentazione CAI2") OrElse
+	strOggetto.Equals("CS_14 Caricare Documentazione CAI1 vs NA/NE") OrElse
+	strOggetto.Equals("CS_15 Caricare Documentazione NA/NE"),
+	"Active",  String.Empty)]</InArgument>
                                                                 </Assign.Value>
                                                               </Assign>
-                                                              <If Condition="[not(String.IsNullOrEmpty(strTypeOfClaim))]" DisplayName="If | Claim is Active or Passive" sap:VirtualizedContainerService.HintSize="755,752" sap2010:WorkflowViewState.IdRef="If_4">
+                                                              <If Condition="[not(String.IsNullOrEmpty(strTypeOfClaim))]" DisplayName="If | Claim is Active or Passive" sap:VirtualizedContainerService.HintSize="755,761" sap2010:WorkflowViewState.IdRef="If_4">
                                                                 <If.Then>
-                                                                  <Sequence DisplayName="Check and load in Queue" sap:VirtualizedContainerService.HintSize="376,605" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                                                                  <Sequence DisplayName="Check and load in Queue" sap:VirtualizedContainerService.HintSize="376,614" sap2010:WorkflowViewState.IdRef="Sequence_63">
                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1248,7 +1190,7 @@ If(strOggetto.Equals("CONTESTA NE") OrElse
                                                                         <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                                                                       </Assign.Value>
                                                                     </Assign>
-                                                                    <Sequence DisplayName="Queue load" sap:VirtualizedContainerService.HintSize="334,305" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                                                                    <Sequence DisplayName="Queue load" sap:VirtualizedContainerService.HintSize="334,314" sap2010:WorkflowViewState.IdRef="Sequence_62">
                                                                       <Sequence.Variables>
                                                                         <Variable x:TypeArguments="s:DateTime" Name="dateQueueDeadline" />
                                                                       </Sequence.Variables>
@@ -1266,32 +1208,15 @@ If(strOggetto.Equals("CONTESTA NE") OrElse
                                                                           <InArgument x:TypeArguments="x:String" xml:space="preserve">["CARD2 - " +  strEvento]</InArgument>
                                                                         </Assign.Value>
                                                                       </Assign>
-                                                                      <ui:CommentOut DisplayName="(TODO: soon)" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="CommentOut_16">
-                                                                        <ui:CommentOut.Body>
-                                                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_61">
-                                                                            <sap:WorkflowViewStateService.ViewState>
-                                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                                              </scg:Dictionary>
-                                                                            </sap:WorkflowViewStateService.ViewState>
-                                                                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_67">
-                                                                              <Assign.To>
-                                                                                <OutArgument x:TypeArguments="s:DateTime">[dateQueueDeadline]</OutArgument>
-                                                                              </Assign.To>
-                                                                              <Assign.Value>
-                                                                                <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(strScadenza,TODO,CultureInfo.InvariantCulture)]</InArgument>
-                                                                              </Assign.Value>
-                                                                            </Assign>
-                                                                          </Sequence>
-                                                                        </ui:CommentOut.Body>
-                                                                        <sap:WorkflowViewStateService.ViewState>
-                                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                                          </scg:Dictionary>
-                                                                        </sap:WorkflowViewStateService.ViewState>
-                                                                      </ui:CommentOut>
-                                                                      <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_2" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[strQueueReference]">
+                                                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_67">
+                                                                        <Assign.To>
+                                                                          <OutArgument x:TypeArguments="s:DateTime">[dateQueueDeadline]</OutArgument>
+                                                                        </Assign.To>
+                                                                        <Assign.Value>
+                                                                          <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(strScadenza,"dd/MM/yy",CultureInfo.InvariantCulture)]</InArgument>
+                                                                        </Assign.Value>
+                                                                      </Assign>
+                                                                      <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" DueDate="[dateQueueDeadline]" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_2" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[strQueueReference]">
                                                                         <ui:AddQueueItem.ItemInformation>
                                                                           <InArgument x:TypeArguments="x:String" x:Key="Activity type">[strTypeOfClaim]</InArgument>
                                                                           <InArgument x:TypeArguments="x:String" x:Key="ClaimNumber">[strRelativoA]</InArgument>
