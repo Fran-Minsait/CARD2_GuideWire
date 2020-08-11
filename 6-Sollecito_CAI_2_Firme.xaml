@@ -62,7 +62,6 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="6. Sollecito CAI 2 Firme" sap:VirtualizedContainerService.HintSize="635,1553" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -162,7 +161,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">299,764.58 299,814.58</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Check CAI2 Document existence (Autosoft)" sap:VirtualizedContainerService.HintSize="798,3129" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <Sequence DisplayName="Check CAI2 Document existence (Autosoft)" sap:VirtualizedContainerService.HintSize="753,2457" sap2010:WorkflowViewState.IdRef="Sequence_6">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="scg:List(x:String)" Name="listTipoServizioMatch" />
                     </Sequence.Variables>
@@ -171,12 +170,12 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Evento_Servizi-Portale workflow" sap:VirtualizedContainerService.HintSize="756,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Evento_Servizi-Portale.xaml">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Evento_Servizi-Portale workflow" sap:VirtualizedContainerService.HintSize="711,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Evento_Servizi-Portale.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <scg:Dictionary x:TypeArguments="x:String, Argument" />
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
-                    <Assign sap:VirtualizedContainerService.HintSize="756,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign sap:VirtualizedContainerService.HintSize="711,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                       <Assign.To>
                         <OutArgument x:TypeArguments="scg:List(x:String)">[listTipoServizioMatch]</OutArgument>
                       </Assign.To>
@@ -184,21 +183,21 @@
                         <InArgument x:TypeArguments="scg:List(x:String)">[New String(){"Perizia"}.ToList]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Servizio-portale_Check-tipo-servizio workflow" sap:VirtualizedContainerService.HintSize="756,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Logic/GW/GW_Servizio-portale_Check-tipo-servizio.xaml">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Servizio-portale_Check-tipo-servizio workflow" sap:VirtualizedContainerService.HintSize="711,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Logic/GW/GW_Servizio-portale_Check-tipo-servizio.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListTipoServizioMatch">[listTipoServizioMatch]</InArgument>
                         <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BoolServicePending">[boolServicePresent]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
-                    <If Condition="[boolServicePresent]" sap:VirtualizedContainerService.HintSize="756,2683" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If Condition="[boolServicePresent]" sap:VirtualizedContainerService.HintSize="711,2011" sap2010:WorkflowViewState.IdRef="If_1">
                       <If.Then>
-                        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW ClaimCenter" sap:VirtualizedContainerService.HintSize="611,2535" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="7f16d2124073971ec0c5e486d34ba8d1" Selector="&lt;html title='Guidewire ClaimCenter*' /&gt;">
+                        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW ClaimCenter" sap:VirtualizedContainerService.HintSize="566,1863" sap2010:WorkflowViewState.IdRef="BrowserScope_1" Selector="&lt;html title='Guidewire ClaimCenter*' /&gt;">
                           <ui:BrowserScope.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="577,2389" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="532,1755" sap2010:WorkflowViewState.IdRef="Sequence_5">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="x:Boolean" Name="boolExistsReqCompletionDate" />
                                   <Variable x:TypeArguments="x:Boolean" Name="boolExistsDataDiComplementoQuota" />
@@ -209,7 +208,7 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Detaggli" sap:VirtualizedContainerService.HintSize="535,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Detaggli" sap:VirtualizedContainerService.HintSize="490,68" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
                                   <ui:Click.CursorPosition>
                                     <ui:CursorPosition Position="Center">
                                       <ui:CursorPosition.OffsetX>
@@ -221,7 +220,7 @@
                                     </ui:CursorPosition>
                                   </ui:Click.CursorPosition>
                                   <ui:Click.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0123204b-1686-4381-9f63-5fcfd8755a8a" InformativeScreenshot="29aabd46648dc8e472f80a3671d7fdc6" Selector="&lt;webctrl id='ClaimServiceRequests:DetailsTab-btnInnerEl' tag='SPAN' /&gt;">
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0123204b-1686-4381-9f63-5fcfd8755a8a" Selector="&lt;webctrl id='ClaimServiceRequests:DetailsTab-btnInnerEl' tag='SPAN' /&gt;">
                                       <ui:Target.TimeoutMS>
                                         <InArgument x:TypeArguments="x:Int32" />
                                       </ui:Target.TimeoutMS>
@@ -231,7 +230,7 @@
                                     </ui:Target>
                                   </ui:Click.Target>
                                 </ui:Click>
-                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Service provider" sap:VirtualizedContainerService.HintSize="535,68" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Service provider" sap:VirtualizedContainerService.HintSize="490,68" sap2010:WorkflowViewState.IdRef="GetValue_3">
                                   <ui:GetValue.Target>
                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="363dd3ad-bb66-42e9-851e-82c4c1b3b67c" Selector="[TODO]">
                                       <ui:Target.TimeoutMS>
@@ -246,9 +245,9 @@
                                     <OutArgument x:TypeArguments="x:String">[strServiceProvider]</OutArgument>
                                   </ui:GetValue.Value>
                                 </ui:GetValue>
-                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Progress" sap:VirtualizedContainerService.HintSize="535,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Progress" sap:VirtualizedContainerService.HintSize="490,68" sap2010:WorkflowViewState.IdRef="GetValue_1">
                                   <ui:GetValue.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9aea4e43-dca3-4542-bc14-1ac37f6ac5e9" InformativeScreenshot="bf632ee209411c4741de044a58e524bd" Selector="&lt;webctrl tag='SPAN' aaname='Progress' /&gt;&lt;nav up='2' /&gt;&lt;webctrl tag='DIV' class='x-form-display-field x-form-display-field-default' /&gt;">
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9aea4e43-dca3-4542-bc14-1ac37f6ac5e9" Selector="&lt;webctrl tag='SPAN' aaname='Progress' /&gt;&lt;nav up='2' /&gt;&lt;webctrl tag='DIV' class='x-form-display-field x-form-display-field-default' /&gt;">
                                       <ui:Target.TimeoutMS>
                                         <InArgument x:TypeArguments="x:Int32" />
                                       </ui:Target.TimeoutMS>
@@ -261,15 +260,15 @@
                                     <OutArgument x:TypeArguments="x:String">[strProgress]</OutArgument>
                                   </ui:GetValue.Value>
                                 </ui:GetValue>
-                                <ui:InterruptibleWhile Condition="[strProgress.Equals(&quot;In Progress&quot;)]" DisplayName="While" sap:VirtualizedContainerService.HintSize="535,1897" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                                <ui:InterruptibleWhile Condition="[strProgress.Equals(&quot;In Progress&quot;)]" DisplayName="While" sap:VirtualizedContainerService.HintSize="490,1339" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
                                   <ui:InterruptibleWhile.Body>
-                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="499,1732" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="454,1174" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Vizualizza foto" sap:VirtualizedContainerService.HintSize="457,106" sap2010:WorkflowViewState.IdRef="Click_24" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Vizualizza foto" sap:VirtualizedContainerService.HintSize="412,68" sap2010:WorkflowViewState.IdRef="Click_24" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                                         <ui:Click.CursorPosition>
                                           <ui:CursorPosition Position="Center">
                                             <ui:CursorPosition.OffsetX>
@@ -281,7 +280,7 @@
                                           </ui:CursorPosition>
                                         </ui:Click.CursorPosition>
                                         <ui:Click.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="93da9b0b-fba8-4499-88cd-bae2a08968a7" InformativeScreenshot="2af06147c74ee5d8e58ef9bf9336d864" Selector="&lt;webctrl tag='A' aaname='Visualizza foto' /&gt;">
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="93da9b0b-fba8-4499-88cd-bae2a08968a7" Selector="&lt;webctrl tag='A' aaname='Visualizza foto' /&gt;">
                                             <ui:Target.TimeoutMS>
                                               <InArgument x:TypeArguments="x:Int32" />
                                             </ui:Target.TimeoutMS>
@@ -291,12 +290,12 @@
                                           </ui:Target>
                                         </ui:Click.Target>
                                       </ui:Click>
-                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke AutosoftCountandseeuploadedfiles workflow" sap:VirtualizedContainerService.HintSize="457,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Logic/AutoSoft/AutosoftCountandseeuploadedfiles.xaml">
+                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke AutosoftCountandseeuploadedfiles workflow" sap:VirtualizedContainerService.HintSize="412,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Logic/AutoSoft/AutosoftCountandseeuploadedfiles.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
                                           <OutArgument x:TypeArguments="x:Boolean" x:Key="boolDocumentIsPresent_Autosoft">[boolDocumentIsPresent_Autosoft]</OutArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
-                                      <ui:InterruptibleWhile Condition="[boolDocumentIsPresent_Autosoft]" DisplayName="While" sap:VirtualizedContainerService.HintSize="457,406" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
+                                      <ui:InterruptibleWhile Condition="[boolDocumentIsPresent_Autosoft]" DisplayName="While" sap:VirtualizedContainerService.HintSize="412,406" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
                                         <ui:InterruptibleWhile.Body>
                                           <Sequence DisplayName="Save files in directory" sap:VirtualizedContainerService.HintSize="376,241" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                             <sap:WorkflowViewStateService.ViewState>
@@ -313,23 +312,20 @@
                                           </Sequence>
                                         </ui:InterruptibleWhile.Body>
                                       </ui:InterruptibleWhile>
-                                      <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window | AutoSoft" sap:VirtualizedContainerService.HintSize="457,68" sap2010:WorkflowViewState.IdRef="CloseWindow_1" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='Portale auto - Internet Explorer' /&gt;" WaitForReady="INTERACTIVE" />
-                                      <ui:InterruptibleWhile Condition="[not(boolDocumentIsPresent_Autosoft)]" DisplayName="While" sap:VirtualizedContainerService.HintSize="457,751" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_4">
+                                      <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window | AutoSoft" sap:VirtualizedContainerService.HintSize="412,68" sap2010:WorkflowViewState.IdRef="CloseWindow_1" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='Portale auto - Internet Explorer' /&gt;" WaitForReady="INTERACTIVE" />
+                                      <ui:InterruptibleWhile Condition="[not(boolDocumentIsPresent_Autosoft)]" DisplayName="If (Only True) | Do SO.GE.S.A. check" sap:VirtualizedContainerService.HintSize="412,231" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_4">
                                         <ui:InterruptibleWhile.Body>
-                                          <Sequence DisplayName="SO.GE.S.A." sap:VirtualizedContainerService.HintSize="421,586" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                          <Sequence DisplayName="SO.GE.S.A." sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_24">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
                                             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SOGESA_LogIn workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="Navigazione\SOGESA\SOGESA_LogIn.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_strPortalURL">
-                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SOGESA_URL&quot;).ToString" />
-                                                </InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_strAssetCredentials">
-                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SOGESA_Credential&quot;).ToString" />
-                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_strPortalURL">[in_Config("SOGESA_URL").ToString]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_strAssetCredentials">[in_Config("SOGESA_Credential").ToString]</InArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                             </ui:InvokeWorkflowFile>
                                             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SOGESA_NavToElencoIncarichi workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Navigazione\SOGESA\SOGESA_NavToElencoIncarichi.xaml">
@@ -363,7 +359,7 @@
                                           </Sequence>
                                         </ui:InterruptibleWhile.Body>
                                       </ui:InterruptibleWhile>
-                                      <ui:Break sap:VirtualizedContainerService.HintSize="457,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                                      <ui:Break sap:VirtualizedContainerService.HintSize="412,22" sap2010:WorkflowViewState.IdRef="Break_1" />
                                     </Sequence>
                                   </ui:InterruptibleWhile.Body>
                                 </ui:InterruptibleWhile>
