@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1172,1326</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,1426</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_6_Incarico_perizia</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -60,7 +60,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="2. Incarico perizia" sap:VirtualizedContainerService.HintSize="634,1261" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="2. Incarico perizia" sap:VirtualizedContainerService.HintSize="784,1261" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="boolActivityIsPresent" />
       <Variable x:TypeArguments="x:String" Name="strLuogoAccadimento" />
@@ -77,18 +77,18 @@
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,134</av:PointCollection>
         <x:Double x:Key="Height">1225</x:Double>
-        <x:Double x:Key="Width">600.5</x:Double>
+        <x:Double x:Key="Width">749.5</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID12</x:Reference>
+      <x:Reference>__ReferenceID11</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID9">
+    <FlowStep>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,227.5</av:Point>
+          <av:Point x:Key="ShapeLocation">330,227.5</av:Point>
           <av:Size x:Key="ShapeSize">200,66</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,293.5 300,343.5</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">430,293.5 430,343.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Sequence DisplayName="Check presence of activities" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -128,28 +128,28 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <av:Point x:Key="ShapeLocation">250.5,343.5</av:Point>
+              <av:Point x:Key="ShapeLocation">380.5,343.5</av:Point>
               <av:Size x:Key="ShapeSize">99,87</av:Size>
-              <av:PointCollection x:Key="FalseConnector">349.5,387 399.5,387</av:PointCollection>
-              <av:PointCollection x:Key="TrueConnector">250.5,387 220.5,387 220.5,444.5 303.283333333333,444.5 303.283333333333,474.5</av:PointCollection>
+              <av:PointCollection x:Key="FalseConnector">479.5,387 529.5,387</av:PointCollection>
+              <av:PointCollection x:Key="TrueConnector">380.5,387 300,387 300,475</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <FlowDecision.True>
-            <FlowDecision x:Name="__ReferenceID11" Condition="[strActivityName.Equals(&quot;CS_14 Caricare Documentazione CAI1 vs NA/Ne&quot;) AndAlso&#xA;Not(in_Responsability.Equals(&quot;Nega Evento&quot;) OrElse in_Responsability.Equals(&quot;Card non applicable&quot;))]" DisplayName="Activity: CS_14" sap:VirtualizedContainerService.HintSize="83,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
+            <FlowDecision x:Name="__ReferenceID9" Condition="[strActivityName.Equals(&quot;CS_14 Caricare Documentazione CAI1 vs NA/Ne&quot;) AndAlso&#xA;Not(in_Responsability.Equals(&quot;Nega Evento&quot;) OrElse in_Responsability.Equals(&quot;Card non applicable&quot;))]" DisplayName="Activity: CS_14" sap:VirtualizedContainerService.HintSize="83,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <av:Point x:Key="ShapeLocation">261.783333333333,474.5</av:Point>
+                  <av:Point x:Key="ShapeLocation">258.5,475</av:Point>
                   <av:Size x:Key="ShapeSize">83,87</av:Size>
-                  <av:PointCollection x:Key="TrueConnector">261.783333333333,518 201.783333333333,518</av:PointCollection>
-                  <av:PointCollection x:Key="FalseConnector">344.783333333333,518 361.5,518 361.5,574 301.5,574 301.5,604</av:PointCollection>
+                  <av:PointCollection x:Key="TrueConnector">258.5,518.5 208.5,518.5</av:PointCollection>
+                  <av:PointCollection x:Key="FalseConnector">341.5,518.5 361.5,518.5 361.5,574 301.5,574 301.5,604</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <FlowDecision.True>
                 <FlowStep x:Name="__ReferenceID10">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">1.7833333333333,507</av:Point>
+                      <av:Point x:Key="ShapeLocation">8.5,507.5</av:Point>
                       <av:Size x:Key="ShapeSize">200,22</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -688,7 +688,7 @@
             <FlowStep x:Name="__ReferenceID1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">399.5,376</av:Point>
+                  <av:Point x:Key="ShapeLocation">529.5,376</av:Point>
                   <av:Size x:Key="ShapeSize">200,22</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -713,12 +713,12 @@
     <x:Reference>__ReferenceID6</x:Reference>
     <x:Reference>__ReferenceID7</x:Reference>
     <x:Reference>__ReferenceID8</x:Reference>
-    <FlowStep x:Name="__ReferenceID12">
+    <FlowStep x:Name="__ReferenceID11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,134</av:Point>
           <av:Size x:Key="ShapeSize">200,51</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,186 300,227.5</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">300,185 300,475</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start of Incarico perizia&quot;]">
@@ -733,6 +733,6 @@
       </FlowStep.Next>
     </FlowStep>
     <x:Reference>__ReferenceID10</x:Reference>
-    <x:Reference>__ReferenceID11</x:Reference>
+    <x:Reference>__ReferenceID9</x:Reference>
   </Flowchart>
 </Activity>

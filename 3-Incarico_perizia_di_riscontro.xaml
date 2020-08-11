@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1172,1286</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,1386</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_2_Incarico_perizia_di_riscontro_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -58,10 +58,9 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="3. Incarico perizia di riscontro" sap:VirtualizedContainerService.HintSize="634,1221" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="3. Incarico perizia di riscontro" sap:VirtualizedContainerService.HintSize="794,1221" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="boolActivityIsPresent" />
       <Variable x:TypeArguments="x:String" Name="strLuogoAccadimento" />
@@ -77,18 +76,18 @@
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,134</av:PointCollection>
         <x:Double x:Key="Height">1184.54</x:Double>
-        <x:Double x:Key="Width">600.5</x:Double>
+        <x:Double x:Key="Width">759.5</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID12</x:Reference>
+      <x:Reference>__ReferenceID11</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID11">
+    <FlowStep>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,237.5</av:Point>
+          <av:Point x:Key="ShapeLocation">320,237.5</av:Point>
           <av:Size x:Key="ShapeSize">200,66</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,303.5 300,353.5</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">420,303.5 420,353.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Sequence DisplayName="Check presence of activities" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -129,10 +128,10 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <av:Point x:Key="ShapeLocation">250.5,353.5</av:Point>
+              <av:Point x:Key="ShapeLocation">370.5,353.5</av:Point>
               <av:Size x:Key="ShapeSize">99,87</av:Size>
-              <av:PointCollection x:Key="FalseConnector">349.5,397 399.5,397</av:PointCollection>
-              <av:PointCollection x:Key="TrueConnector">250.5,397 220.5,397 220.5,453.5 302,453.5 302,483.5</av:PointCollection>
+              <av:PointCollection x:Key="FalseConnector">469.5,397 519.5,397</av:PointCollection>
+              <av:PointCollection x:Key="TrueConnector">370.5,397 300,397 300,485</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <FlowDecision.True>
@@ -140,10 +139,10 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <av:Point x:Key="ShapeLocation">261.5,483.5</av:Point>
+                  <av:Point x:Key="ShapeLocation">259,485</av:Point>
                   <av:Size x:Key="ShapeSize">82,87</av:Size>
-                  <av:PointCollection x:Key="FalseConnector">342.5,527 390.5,527</av:PointCollection>
-                  <av:PointCollection x:Key="TrueConnector">261.5,527 241.5,527 241.5,584 301.5,584 301.5,614</av:PointCollection>
+                  <av:PointCollection x:Key="FalseConnector">341,528.5 391,528.5</av:PointCollection>
+                  <av:PointCollection x:Key="TrueConnector">259,528.5 241.5,528.5 241.5,584 301.5,584 301.5,614</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <FlowDecision.True>
@@ -325,21 +324,11 @@
                                     </ui:InvokeWorkflowFile>
                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_New-Incarico_Riscontro workflow" sap:VirtualizedContainerService.HintSize="350,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Logic/GW/GW_New-Incarico_Riscontro.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_strModelloVeicoli">
-                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strModelloVeicoli" />
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_strTargaVeicoli">
-                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strTargaVeicoli" />
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_strVendor">
-                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strVendor" />
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_strAditionalDescription">
-                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;IncaricoPerizia_AditionalInstructions&quot;).ToString" />
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_strLuogoAccadimento">
-                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strLuogoAccadimento" />
-                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_strModelloVeicoli">[strModelloVeicoli]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_strTargaVeicoli">[strTargaVeicoli]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_strVendor">[strVendor]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_strAditionalDescription">[in_Config("IncaricoPerizia_AditionalInstructions").ToString]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_strLuogoAccadimento">[strLuogoAccadimento]</InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                     </ui:InvokeWorkflowFile>
                                   </Sequence>
@@ -357,7 +346,7 @@
                 <FlowStep x:Name="__ReferenceID3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">390.5,516</av:Point>
+                      <av:Point x:Key="ShapeLocation">391,517.5</av:Point>
                       <av:Size x:Key="ShapeSize">200,22</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -376,7 +365,7 @@
             <FlowStep x:Name="__ReferenceID1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">399.5,386</av:Point>
+                  <av:Point x:Key="ShapeLocation">519.5,386</av:Point>
                   <av:Size x:Key="ShapeSize">200,22</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -403,12 +392,12 @@
     <x:Reference>__ReferenceID8</x:Reference>
     <x:Reference>__ReferenceID9</x:Reference>
     <x:Reference>__ReferenceID10</x:Reference>
-    <FlowStep x:Name="__ReferenceID12">
+    <FlowStep x:Name="__ReferenceID11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,134</av:Point>
           <av:Size x:Key="ShapeSize">200,51</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,186 300,237.5</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">300,185 300,485</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start of Incarico perizia di riscontro&quot;]">
@@ -419,7 +408,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID11</x:Reference>
+        <x:Reference>__ReferenceID2</x:Reference>
       </FlowStep.Next>
     </FlowStep>
   </Flowchart>
