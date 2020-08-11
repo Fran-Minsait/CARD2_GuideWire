@@ -8,10 +8,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1172,1273</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,1373</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="22">
+    <scg:List x:TypeArguments="x:String" Capacity="23">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -34,10 +34,11 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
       <x:String>System.Globalization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="23">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -60,6 +61,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="758,1208" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -68,11 +70,7 @@
       <Variable x:TypeArguments="s:DateTime" Name="dateClaimDate" />
       <Variable x:TypeArguments="x:String" Name="strResponsabilityPercentage" />
       <Variable x:TypeArguments="x:String" Name="strActivity" />
-      <Variable x:TypeArguments="x:String" Name="strCollisionClassificazione">
-        <Variable.Default>
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="String.Empty" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Default="[String.Empty]" Name="strCollisionClassificazione" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -96,7 +94,7 @@
           <av:PointCollection x:Key="ConnectorLocation">330,193.5 330,243.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Common part" sap:VirtualizedContainerService.HintSize="558,2654" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence DisplayName="Common part" sap:VirtualizedContainerService.HintSize="854,4333" sap2010:WorkflowViewState.IdRef="Sequence_2">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="subProcess" />
         </Sequence.Variables>
@@ -105,7 +103,7 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Assign DisplayName="Construct Output Dictionary (1)" sap:VirtualizedContainerService.HintSize="516,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign DisplayName="Construct Output Dictionary (1)" sap:VirtualizedContainerService.HintSize="812,60" sap2010:WorkflowViewState.IdRef="Assign_5">
           <Assign.To>
             <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[out_ProcessState]</OutArgument>
           </Assign.To>
@@ -113,7 +111,7 @@
             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[New Dictionary(Of String, Object)]</InArgument>
           </Assign.Value>
         </Assign>
-        <Assign DisplayName="Construct Output Dictionary (2)" sap:VirtualizedContainerService.HintSize="516,60" sap2010:WorkflowViewState.IdRef="Assign_32">
+        <Assign DisplayName="Construct Output Dictionary (2)" sap:VirtualizedContainerService.HintSize="812,60" sap2010:WorkflowViewState.IdRef="Assign_32">
           <Assign.To>
             <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[out_ProcessException]</OutArgument>
           </Assign.To>
@@ -121,7 +119,7 @@
             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[New Dictionary(Of String, Object)]</InArgument>
           </Assign.Value>
         </Assign>
-        <Assign DisplayName="Retrieve ClaimNumber" sap:VirtualizedContainerService.HintSize="516,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign DisplayName="Retrieve ClaimNumber" sap:VirtualizedContainerService.HintSize="812,60" sap2010:WorkflowViewState.IdRef="Assign_1">
           <Assign.To>
             <OutArgument x:TypeArguments="x:String">[strClaimNumber]</OutArgument>
           </Assign.To>
@@ -129,18 +127,18 @@
             <InArgument x:TypeArguments="x:String">[in_TransactionData("ClaimNumber").ToString]</InArgument>
           </Assign.Value>
         </Assign>
-        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Ricerca workflow" sap:VirtualizedContainerService.HintSize="516,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Ricerca.xaml">
+        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Ricerca workflow" sap:VirtualizedContainerService.HintSize="812,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Ricerca.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <InArgument x:TypeArguments="x:String" x:Key="in_sinistro">[strClaimNumber]</InArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
-        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW ClaimCenter" sap:VirtualizedContainerService.HintSize="516,252" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="9e880992e005ce9cdef352ccaa770ec5" Selector="&lt;html title='Guidewire ClaimCenter*' /&gt;">
+        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW ClaimCenter" sap:VirtualizedContainerService.HintSize="812,176" sap2010:WorkflowViewState.IdRef="BrowserScope_1" Selector="&lt;html title='Guidewire ClaimCenter*' /&gt;">
           <ui:BrowserScope.Body>
             <ActivityAction x:TypeArguments="x:Object">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
               </ActivityAction.Argument>
-              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | CN.Sinistro" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | CN.Sinistro" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition Position="Center">
                     <ui:CursorPosition.OffsetX>
@@ -152,7 +150,7 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1f86c531-de95-409a-9f47-8235dd67655d" InformativeScreenshot="f9f83ab33cd3c72b9922cd58ccd6604c" Selector="&lt;webctrl aaname='{{strClaimNumber}}' tag='DIV' class='x-grid-cell-inner ' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1f86c531-de95-409a-9f47-8235dd67655d" Selector="&lt;webctrl aaname='{{strClaimNumber}}' tag='DIV' class='x-grid-cell-inner ' /&gt;">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -165,7 +163,7 @@
             </ActivityAction>
           </ui:BrowserScope.Body>
         </ui:BrowserScope>
-        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Flussi-ANIA-Card_Responsibilita-ANIA workflow" sap:VirtualizedContainerService.HintSize="516,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Flussi-ANIA-Card_Responsibilita-ANIA.xaml">
+        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Flussi-ANIA-Card_Responsibilita-ANIA workflow" sap:VirtualizedContainerService.HintSize="812,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Flussi-ANIA-Card_Responsibilita-ANIA.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <OutArgument x:TypeArguments="x:String" x:Key="outStrDataDanno" />
             <OutArgument x:TypeArguments="x:String" x:Key="outStrVeicoloDestinataria" />
@@ -174,13 +172,13 @@
             <OutArgument x:TypeArguments="x:String" x:Key="outStrResponsabilitaMittente" />
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
-        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW ClaimCenter" sap:VirtualizedContainerService.HintSize="516,590" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="9e880992e005ce9cdef352ccaa770ec5" Selector="&lt;html title='Guidewire ClaimCenter*' /&gt;">
+        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW ClaimCenter" sap:VirtualizedContainerService.HintSize="812,3471" sap2010:WorkflowViewState.IdRef="BrowserScope_2" Selector="&lt;html title='Guidewire ClaimCenter*' /&gt;">
           <ui:BrowserScope.Body>
             <ActivityAction x:TypeArguments="x:Object">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,444" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="778,3363" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="strClaimDate" />
                 </Sequence.Variables>
@@ -189,9 +187,9 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Inviato il" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Inviato il" sap:VirtualizedContainerService.HintSize="736,68" sap2010:WorkflowViewState.IdRef="GetValue_1">
                   <ui:GetValue.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7d8e5599-0455-4d6a-ac2b-8f47fa8d252e" InformativeScreenshot="c69e42ed0bb8aef5836418a1fc91cf3d" Selector="&lt;webctrl tag='DIV' class='x-grid-cell-inner ' parentclass='x-grid-cell x-grid-td x-grid-cell-gridcolumn-1625 x-grid-cell-first' /&gt;">
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7d8e5599-0455-4d6a-ac2b-8f47fa8d252e" Selector="&lt;webctrl tag='DIV' class='x-grid-cell-inner ' parentclass='x-grid-cell x-grid-td x-grid-cell-gridcolumn-1625 x-grid-cell-first' /&gt;">
                       <ui:Target.TimeoutMS>
                         <InArgument x:TypeArguments="x:Int32" />
                       </ui:Target.TimeoutMS>
@@ -204,7 +202,7 @@
                     <OutArgument x:TypeArguments="x:String">[strClaimDate]</OutArgument>
                   </ui:GetValue.Value>
                 </ui:GetValue>
-                <Assign DisplayName="Convert string to date" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign DisplayName="Convert string to date" sap:VirtualizedContainerService.HintSize="736,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                   <Assign.To>
                     <OutArgument x:TypeArguments="s:DateTime">[dateClaimDate]</OutArgument>
                   </Assign.To>
@@ -212,9 +210,9 @@
                     <InArgument x:TypeArguments="s:DateTime">[Date.ParseExact(strClaimDate, "dd/MM/yy",Globalization.CultureInfo.InvariantCulture)]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Dich. resp. impresa mittente" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Dich. resp. impresa mittente" sap:VirtualizedContainerService.HintSize="736,68" sap2010:WorkflowViewState.IdRef="GetValue_2">
                   <ui:GetValue.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6a2b0026-657f-4bad-a490-e85469264dd0" InformativeScreenshot="7369e7ea79ce25e59a3e05bfa93069a2" Selector="&lt;webctrl tag='DIV' class='x-grid-cell-inner ' parentclass='x-grid-cell x-grid-td x-grid-cell-gridcolumn-1629' /&gt;">
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6a2b0026-657f-4bad-a490-e85469264dd0" Selector="&lt;webctrl tag='DIV' class='x-grid-cell-inner ' parentclass='x-grid-cell x-grid-td x-grid-cell-gridcolumn-1629' /&gt;">
                       <ui:Target.TimeoutMS>
                         <InArgument x:TypeArguments="x:Int32" />
                       </ui:Target.TimeoutMS>
@@ -227,282 +225,342 @@
                     <OutArgument x:TypeArguments="x:String">[strResponsabilityPercentage]</OutArgument>
                   </ui:GetValue.Value>
                 </ui:GetValue>
-              </Sequence>
-            </ActivityAction>
-          </ui:BrowserScope.Body>
-        </ui:BrowserScope>
-        <Switch x:TypeArguments="x:String" DisplayName="Switch | By activity ..." Expression="[strActivity]" sap:VirtualizedContainerService.HintSize="516,1086" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-          <Sequence x:Key="CS_01 Caricare Documentazione CAI1" sap:VirtualizedContainerService.HintSize="396,571" sap2010:WorkflowViewState.IdRef="Sequence_24">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:Boolean" Name="boolActivityIsPresent" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Evento_Piano-di-lavoro workflow" sap:VirtualizedContainerService.HintSize="354,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Evento_Piano-di-lavoro.xaml">
-              <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_Oggetto" />
-                <InArgument x:TypeArguments="x:Boolean" x:Key="in_Completa">False</InArgument>
-              </ui:InvokeWorkflowFile.Arguments>
-            </ui:InvokeWorkflowFile>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Piano-di-lavoro_Asign-first workflow" sap:VirtualizedContainerService.HintSize="354,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Logic/GW/GW_Piano-di-lavoro_Asign-first.xaml">
-              <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="inListOfNames">
-                  <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="New String(){strActivity}.ToList" />
-                </InArgument>
-                <OutArgument x:TypeArguments="x:Boolean" x:Key="outBoolActivityIsPresent">
-                  <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolActivityIsPresent" />
-                </OutArgument>
-                <OutArgument x:TypeArguments="x:String" x:Key="outStrActivityName" />
-              </ui:InvokeWorkflowFile.Arguments>
-            </ui:InvokeWorkflowFile>
-            <ui:InterruptibleWhile DisplayName="While" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_4">
-              <ui:InterruptibleWhile.Body>
-                <Throw DisplayName="Throw E-10??" Exception="[New BusinessRuleException(in_Config(&quot;Message_E-10&quot;??).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_3">
+                <Switch x:TypeArguments="x:String" DisplayName="Switch | By activity ..." Expression="[strActivity]" sap:VirtualizedContainerService.HintSize="736,2955" sap2010:WorkflowViewState.IdRef="Switch`1_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                </Throw>
-              </ui:InterruptibleWhile.Body>
-              <ui:InterruptibleWhile.Condition>
-                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="not(boolActivityIsPresent)" />
-              </ui:InterruptibleWhile.Condition>
-            </ui:InterruptibleWhile>
-          </Sequence>
-          <Sequence x:Key="CS_14 Caricare Documentazione CAI1 vs NA/NE" sap:VirtualizedContainerService.HintSize="696,1705" sap2010:WorkflowViewState.IdRef="Sequence_27">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:InterruptibleWhile Condition="[Not(strResponsabilityPercentage.Equals(&quot;Nega evento&quot;) OrElse strResponsabilityPercentage.Equals(&quot;Card non applocabile&quot;))]" DisplayName="While | Check responsability value" sap:VirtualizedContainerService.HintSize="654,225" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
-              <ui:InterruptibleWhile.Body>
-                <Throw DisplayName="Throw E-1003" Exception="[New BusinessRuleException(in_Config(&quot;Message_E-1003&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </Throw>
-              </ui:InterruptibleWhile.Body>
-            </ui:InterruptibleWhile>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Evento_Flussi-Ania-Card workflow" sap:VirtualizedContainerService.HintSize="654,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Evento_Flussi-Ania-Card.xaml">
-              <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="inStrSoloTransmessi">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="String.Empty" />
-                </InArgument>
-                <OutArgument x:TypeArguments="x:String" x:Key="outStrWorkItemStatus" />
-                <InArgument x:TypeArguments="x:String" x:Key="inStrTipoRecord">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="String.Empty" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="inStrInEntrataInUscita">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="String.Empty" />
-                </InArgument>
-              </ui:InvokeWorkflowFile.Arguments>
-            </ui:InvokeWorkflowFile>
-            <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[Table of Elements]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="654,1221" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
-              <ui:ForEachRow.Body>
-                <ActivityAction x:TypeArguments="sd:DataRow">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
-                  </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="604,1073" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                  <Sequence x:Key="CS_01 Caricare Documentazione CAI1" sap:VirtualizedContainerService.HintSize="396,571" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="boolActivityIsPresent" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InterruptibleWhile DisplayName="While" sap:VirtualizedContainerService.HintSize="562,733" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Evento_Piano-di-lavoro workflow" sap:VirtualizedContainerService.HintSize="354,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Evento_Piano-di-lavoro.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Oggetto" />
+                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_Completa">False</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Piano-di-lavoro_Asign-first workflow" sap:VirtualizedContainerService.HintSize="354,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Logic/GW/GW_Piano-di-lavoro_Asign-first.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="inListOfNames">[New String(){strActivity}.ToList]</InArgument>
+                        <OutArgument x:TypeArguments="x:Boolean" x:Key="outBoolActivityIsPresent">[boolActivityIsPresent]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="outStrActivityName" />
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <ui:InterruptibleWhile Condition="[not(boolActivityIsPresent)]" DisplayName="While" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_4">
                       <ui:InterruptibleWhile.Body>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,568" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                        <Throw DisplayName="Throw E-1002" Exception="[New BusinessRuleException(String.Format(in_Config(&quot;Message_E-1003&quot;).ToString, {strActivity, strClaimNumber}))]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_3">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | On option" sap:VirtualizedContainerService.HintSize="484,68" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
-                            <ui:Click.CursorPosition>
-                              <ui:CursorPosition Position="Center">
-                                <ui:CursorPosition.OffsetX>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:CursorPosition.OffsetX>
-                                <ui:CursorPosition.OffsetY>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:CursorPosition.OffsetY>
-                              </ui:CursorPosition>
-                            </ui:Click.CursorPosition>
-                            <ui:Click.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b1ca8979-d4ea-4570-99ef-9a66ef1df67e" Selector="[ToDo]">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:Click.Target>
-                          </ui:Click>
-                          <Parallel DisplayName="Parallel | Check Classificazione" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="Parallel_1">
-                            <Parallel.Variables>
-                              <Variable x:TypeArguments="x:Boolean" Name="boolAssenaDiCollisione" />
-                              <Variable x:TypeArguments="x:Boolean" Name="boolPiuVeicoliCoinvolti" />
-                            </Parallel.Variables>
+                        </Throw>
+                      </ui:InterruptibleWhile.Body>
+                    </ui:InterruptibleWhile>
+                  </Sequence>
+                  <Sequence x:Key="CS_14 Caricare Documentazione CAI1 vs NA/NE" sap:VirtualizedContainerService.HintSize="696,2706" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="sd:DataTable" Name="TableOfElements" />
+                      <Variable x:TypeArguments="x:Int32" Name="index" />
+                      <Variable x:TypeArguments="x:Boolean" Name="boolActivityIsPresent" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Evento_Piano-di-lavoro workflow" sap:VirtualizedContainerService.HintSize="654,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Evento_Piano-di-lavoro.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Oggetto" />
+                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_Completa">False</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Piano-di-lavoro_Asign-first workflow" sap:VirtualizedContainerService.HintSize="654,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="Logic/GW/GW_Piano-di-lavoro_Asign-first.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="inListOfNames">
+                          <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="New String(){strActivity}.ToList" />
+                        </InArgument>
+                        <OutArgument x:TypeArguments="x:Boolean" x:Key="outBoolActivityIsPresent">
+                          <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolActivityIsPresent" />
+                        </OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="outStrActivityName" />
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <ui:InterruptibleWhile Condition="[not(boolActivityIsPresent)]" DisplayName="While" sap:VirtualizedContainerService.HintSize="654,225" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_7">
+                      <ui:InterruptibleWhile.Body>
+                        <Throw DisplayName="Throw E-1002" Exception="[New BusinessRuleException(String.Format(in_Config(&quot;Message_E-1003&quot;).ToString, {strActivity, strClaimNumber}))]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_8">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Throw>
+                      </ui:InterruptibleWhile.Body>
+                    </ui:InterruptibleWhile>
+                    <ui:InterruptibleWhile Condition="[Not(strResponsabilityPercentage.Equals(&quot;Nega evento&quot;) OrElse strResponsabilityPercentage.Equals(&quot;Card non applocabile&quot;))]" DisplayName="While | Check responsability value" sap:VirtualizedContainerService.HintSize="654,225" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                      <ui:InterruptibleWhile.Body>
+                        <Throw DisplayName="Throw E-1003" Exception="[New BusinessRuleException(in_Config(&quot;Message_E-1003&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Throw>
+                      </ui:InterruptibleWhile.Body>
+                    </ui:InterruptibleWhile>
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Evento_Flussi-Ania-Card workflow" sap:VirtualizedContainerService.HintSize="654,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Evento_Flussi-Ania-Card.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="inStrSoloTransmessi">[String.Empty]</InArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="outStrWorkItemStatus" />
+                        <InArgument x:TypeArguments="x:String" x:Key="inStrTipoRecord">[String.Empty]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="inStrInEntrataInUscita">[String.Empty]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[TableOfElements]" DisplayName="Extract Structured Data | Table of comunications" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='table' /&gt;&lt;webctrl tag='tbody' idx='1' /&gt;&lt;webctrl tag='tr' class='  x-grid-row' idx='1' /&gt;&lt;/row&gt;&lt;column name='Column1' attr='text' exact='1'&gt;&lt;webctrl tag='table' /&gt;&lt;webctrl tag='tbody' idx='1' /&gt;&lt;webctrl tag='tr' class='  x-grid-row' idx='1' /&gt;&lt;webctrl tag='td' class='x-grid-cell x-grid-td x-grid-cell-gridcolumn-1628 x-grid-cell-first' idx='1' /&gt;&lt;webctrl tag='div' class='x-grid-cell-inner ' idx='1' /&gt;&lt;/column&gt;&lt;column name='Column2' attr='text' exact='1'&gt;&lt;webctrl tag='table' /&gt;&lt;webctrl tag='tbody' idx='1' /&gt;&lt;webctrl tag='tr' class='  x-grid-row' idx='1' /&gt;&lt;webctrl tag='td' class='x-grid-cell x-grid-td x-grid-cell-gridcolumn-1629' idx='1' /&gt;&lt;webctrl tag='div' class='x-grid-cell-inner ' idx='1' /&gt;&lt;/column&gt;&lt;column name='Column3' attr='text' exact='1'&gt;&lt;webctrl tag='table' /&gt;&lt;webctrl tag='tbody' idx='1' /&gt;&lt;webctrl tag='tr' class='  x-grid-row' idx='1' /&gt;&lt;webctrl tag='td' class='x-grid-cell x-grid-td x-grid-cell-gridcolumn-1630' idx='1' /&gt;&lt;webctrl tag='div' class='x-grid-cell-inner ' idx='1' /&gt;&lt;/column&gt;&lt;column name='Column4' attr='text' exact='1'&gt;&lt;webctrl tag='table' /&gt;&lt;webctrl tag='tbody' idx='1' /&gt;&lt;webctrl tag='tr' class='  x-grid-row' idx='1' /&gt;&lt;webctrl tag='td' class='x-grid-cell x-grid-td x-grid-cell-gridcolumn-1631 x-grid-cell-last' idx='1' /&gt;&lt;webctrl tag='div' class='x-grid-cell-inner ' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="654,106" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" SimulateClick="True">
+                      <ui:ExtractData.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="98b9a5cb-9e47-41bf-a01d-b19815cb0fd9" InformativeScreenshot="f33314ba43a8fd2e5fdb947fdc8d115e" Selector="&lt;webctrl tag='DIV' class='x-grid-item-container' parentclass='x-grid-view x-grid-with-col-lines x-grid-with-row-lines x-fit-item x-grid-view-default' /&gt;" WaitForReady="COMPLETE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </ui:ExtractData.Target>
+                    </ui:ExtractData>
+                    <ui:ForEachRow CurrentIndex="[index]" DataTable="[TableOfElements]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="654,1557" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                      <ui:ForEachRow.Body>
+                        <ActivityAction x:TypeArguments="sd:DataRow">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="604,1410" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:String" Name="Status" />
+                              <Variable x:TypeArguments="x:String" Name="Typo" />
+                              <Variable x:TypeArguments="x:String" Name="Direction" />
+                            </Sequence.Variables>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Parallel.CompletionCondition>
-                              <Literal x:TypeArguments="x:Boolean" />
-                            </Parallel.CompletionCondition>
-                            <ui:UiElementExists DisplayName="Element Exists | Assenza di collisione" Exists="[boolAssenaDiCollisione]" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
-                              <ui:UiElementExists.Target>
-                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2a8525d9-f844-428b-9ded-a6a41a1bb53b" Selector="[TODO]" TimeoutMS="[Convert.ToInt32(in_Config(&quot;TimeoutShort&quot;))]">
-                                  <ui:Target.WaitForReady>
-                                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                                  </ui:Target.WaitForReady>
-                                </ui:Target>
-                              </ui:UiElementExists.Target>
-                            </ui:UiElementExists>
-                            <ui:UiElementExists DisplayName="Element Exists | Più veicoli coinvolti" Exists="[boolPiuVeicoliCoinvolti]" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
-                              <ui:UiElementExists.Target>
-                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fe9fa172-6273-4e2f-b91b-1e4f73de2234" Selector="[TODO]" TimeoutMS="[Convert.ToInt32(in_Config(&quot;TimeoutShort&quot;))]">
-                                  <ui:Target.WaitForReady>
-                                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                                  </ui:Target.WaitForReady>
-                                </ui:Target>
-                              </ui:UiElementExists.Target>
-                            </ui:UiElementExists>
-                          </Parallel>
-                          <If Condition="[boolAssenaDiCollisione OrElse boolPiuVeicoliCoinvolti]" DisplayName="If | Any option is True" sap:VirtualizedContainerService.HintSize="484,215" sap2010:WorkflowViewState.IdRef="If_1">
-                            <If.Then>
-                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Classificazione" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="GetValue_3">
-                                <ui:GetValue.Target>
-                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f6bd6f36-a330-4eca-b074-5d0fde86c56e" Selector="[ToDo]">
-                                    <ui:Target.TimeoutMS>
-                                      <InArgument x:TypeArguments="x:Int32" />
-                                    </ui:Target.TimeoutMS>
-                                    <ui:Target.WaitForReady>
-                                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                                    </ui:Target.WaitForReady>
-                                  </ui:Target>
-                                </ui:GetValue.Target>
-                                <ui:GetValue.Value>
-                                  <OutArgument x:TypeArguments="x:String">[strCollisionClassificazione]</OutArgument>
-                                </ui:GetValue.Value>
-                              </ui:GetValue>
-                            </If.Then>
-                          </If>
-                          <ui:Break sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="Break_3" />
-                        </Sequence>
-                      </ui:InterruptibleWhile.Body>
-                      <ui:InterruptibleWhile.Condition>
-                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Status.Equals(&quot;In uscita&quot;) AndAlso Typo.Equals(&quot;Notifica responsabilità&quot;) AndAlso Direction(&quot;Ricevuto&quot;)" />
-                      </ui:InterruptibleWhile.Condition>
-                    </ui:InterruptibleWhile>
-                    <If Condition="[Not(String.IsNullOrEmpty(strCollisionClassificazione))]" DisplayName="If | Classificazione is found" sap:VirtualizedContainerService.HintSize="562,208" sap2010:WorkflowViewState.IdRef="If_2">
-                      <If.Then>
-                        <ui:Break sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_4" />
-                      </If.Then>
-                    </If>
+                            <Assign sap:VirtualizedContainerService.HintSize="562,60" sap2010:WorkflowViewState.IdRef="Assign_51">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[row(0).ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="562,60" sap2010:WorkflowViewState.IdRef="Assign_52">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[Typo]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[row(1).ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="562,60" sap2010:WorkflowViewState.IdRef="Assign_53">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[Direction]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[row(2).ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:InterruptibleWhile DisplayName="While" sap:VirtualizedContainerService.HintSize="562,771" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
+                              <ui:InterruptibleWhile.Body>
+                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,606" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="x:Boolean" Name="boolAssenaDiCollisione" />
+                                    <Variable x:TypeArguments="x:Boolean" Name="boolPiuVeicoliCoinvolti" />
+                                  </Sequence.Variables>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | On option" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                    <ui:Click.CursorPosition>
+                                      <ui:CursorPosition Position="Center">
+                                        <ui:CursorPosition.OffsetX>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetX>
+                                        <ui:CursorPosition.OffsetY>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetY>
+                                      </ui:CursorPosition>
+                                    </ui:Click.CursorPosition>
+                                    <ui:Click.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b1ca8979-d4ea-4570-99ef-9a66ef1df67e" InformativeScreenshot="34ca34e2cbf6ed7015c7b5723569d820" Selector="&lt;webctrl tag='DIV' class='x-grid-cell-inner ' tableCol='2' idx='{{index + 1}}' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:Click.Target>
+                                  </ui:Click>
+                                  <Parallel DisplayName="Parallel | Check Classificazione" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="Parallel_1">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Parallel.CompletionCondition>False</Parallel.CompletionCondition>
+                                    <ui:UiElementExists DisplayName="Element Exists | Assenza di collisione" Exists="[boolAssenaDiCollisione]" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                                      <ui:UiElementExists.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2a8525d9-f844-428b-9ded-a6a41a1bb53b" Selector="&lt;webctrl aaname='Assenza di collisione' tag='DIV' class='x-form-display-field x-form-display-field-default' /&gt;" TimeoutMS="[Convert.ToInt32(in_Config(&quot;TimeoutShort&quot;))]">
+                                          <ui:Target.WaitForReady>
+                                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                                          </ui:Target.WaitForReady>
+                                        </ui:Target>
+                                      </ui:UiElementExists.Target>
+                                    </ui:UiElementExists>
+                                    <ui:UiElementExists DisplayName="Element Exists | Più veicoli coinvolti" Exists="[boolPiuVeicoliCoinvolti]" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                                      <ui:UiElementExists.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fe9fa172-6273-4e2f-b91b-1e4f73de2234" Selector="&lt;webctrl aaname='Più veicoli coinvolti' tag='DIV' class='x-form-display-field x-form-display-field-default' /&gt;" TimeoutMS="[Convert.ToInt32(in_Config(&quot;TimeoutShort&quot;))]">
+                                          <ui:Target.WaitForReady>
+                                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                                          </ui:Target.WaitForReady>
+                                        </ui:Target>
+                                      </ui:UiElementExists.Target>
+                                    </ui:UiElementExists>
+                                  </Parallel>
+                                  <If Condition="[boolAssenaDiCollisione OrElse boolPiuVeicoliCoinvolti]" DisplayName="If | Any option is True" sap:VirtualizedContainerService.HintSize="484,215" sap2010:WorkflowViewState.IdRef="If_1">
+                                    <If.Then>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Classificazione" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f6bd6f36-a330-4eca-b074-5d0fde86c56e" Selector="&lt;webctrl aaname='Classificazione' tag='SPAN' class='x-form-item-label-inner x-form-item-label-inner-default' /&gt;&lt;nav up='2' /&gt;&lt;webctrl tag='DIV' class='x-form-display-field x-form-display-field-default' colName='Tipo della dichiarazione    Definitiva' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:String">[strCollisionClassificazione]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                    </If.Then>
+                                  </If>
+                                  <ui:Break sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="Break_3" />
+                                </Sequence>
+                              </ui:InterruptibleWhile.Body>
+                              <ui:InterruptibleWhile.Condition>
+                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Status.Equals(&quot;In uscita&quot;) AndAlso Typo.Equals(&quot;Notifica responsabilità&quot;) AndAlso Direction.Equals(&quot;Ricevuto&quot;)" />
+                              </ui:InterruptibleWhile.Condition>
+                            </ui:InterruptibleWhile>
+                            <If Condition="[Not(String.IsNullOrEmpty(strCollisionClassificazione))]" DisplayName="If | Classificazione is found" sap:VirtualizedContainerService.HintSize="562,207" sap2010:WorkflowViewState.IdRef="If_2">
+                              <If.Then>
+                                <ui:Break sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_4" />
+                              </If.Then>
+                            </If>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ForEachRow.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:ForEachRow>
                   </Sequence>
-                </ActivityAction>
-              </ui:ForEachRow.Body>
-            </ui:ForEachRow>
-          </Sequence>
-          <Sequence x:Key="CS_09 Caricare Documentazione CAI2" sap:VirtualizedContainerService.HintSize="396,571" sap2010:WorkflowViewState.IdRef="Sequence_35">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:Boolean" Name="boolActivityIsPresent" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Evento_Piano-di-lavoro workflow" sap:VirtualizedContainerService.HintSize="354,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Evento_Piano-di-lavoro.xaml">
-              <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_Oggetto" />
-                <InArgument x:TypeArguments="x:Boolean" x:Key="in_Completa">False</InArgument>
-              </ui:InvokeWorkflowFile.Arguments>
-            </ui:InvokeWorkflowFile>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Piano-di-lavoro_Asign-first workflow" sap:VirtualizedContainerService.HintSize="354,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Logic/GW/GW_Piano-di-lavoro_Asign-first.xaml">
-              <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="inListOfNames">
-                  <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="New String(){strActivity}.ToList" />
-                </InArgument>
-                <OutArgument x:TypeArguments="x:Boolean" x:Key="outBoolActivityIsPresent">
-                  <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolActivityIsPresent" />
-                </OutArgument>
-                <OutArgument x:TypeArguments="x:String" x:Key="outStrActivityName" />
-              </ui:InvokeWorkflowFile.Arguments>
-            </ui:InvokeWorkflowFile>
-            <ui:InterruptibleWhile Condition="[not(boolActivityIsPresent)]" DisplayName="While" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_5">
-              <ui:InterruptibleWhile.Body>
-                <Throw DisplayName="Throw E-10??" Exception="[New BusinessRuleException(in_Config(&quot;Message_E-10&quot;??).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_4">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </Throw>
-              </ui:InterruptibleWhile.Body>
-            </ui:InterruptibleWhile>
-          </Sequence>
-          <Sequence x:Key="CS_15 Caricare Documentazione NA/NE" sap:VirtualizedContainerService.HintSize="476,836" sap2010:WorkflowViewState.IdRef="Sequence_32">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:Boolean" Name="boolActivityIsPresent" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Evento_Piano-di-lavoro workflow" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Evento_Piano-di-lavoro.xaml">
-              <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_Oggetto" />
-                <InArgument x:TypeArguments="x:Boolean" x:Key="in_Completa">False</InArgument>
-              </ui:InvokeWorkflowFile.Arguments>
-            </ui:InvokeWorkflowFile>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Piano-di-lavoro_Asign-first workflow" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Logic/GW/GW_Piano-di-lavoro_Asign-first.xaml">
-              <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="inListOfNames">
-                  <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="New String(){&quot;CS_14 Caricare Documentazione CAI1 vs NA/NE&quot;}.ToList" />
-                </InArgument>
-                <OutArgument x:TypeArguments="x:Boolean" x:Key="outBoolActivityIsPresent">
-                  <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolActivityIsPresent" />
-                </OutArgument>
-                <OutArgument x:TypeArguments="x:String" x:Key="outStrActivityName" />
-              </ui:InvokeWorkflowFile.Arguments>
-            </ui:InvokeWorkflowFile>
-            <ui:InterruptibleWhile Condition="[not(boolActivityIsPresent)]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,225" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_6">
-              <ui:InterruptibleWhile.Body>
-                <Throw DisplayName="Throw E-10??" Exception="[New BusinessRuleException(in_Config(&quot;Message_E-10&quot;??).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_5">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </Throw>
-              </ui:InterruptibleWhile.Body>
-            </ui:InterruptibleWhile>
-            <ui:InterruptibleWhile Condition="[Not(strResponsabilityPercentage.Equals(&quot;Nega evento&quot;) OrElse strResponsabilityPercentage.Equals(&quot;Card non applocabile&quot;))]" DisplayName="While | Check responsability value" sap:VirtualizedContainerService.HintSize="434,225" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
-              <ui:InterruptibleWhile.Body>
-                <Throw DisplayName="Throw E-1003" Exception="[New BusinessRuleException(in_Config(&quot;Message_E-1003&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </Throw>
-              </ui:InterruptibleWhile.Body>
-            </ui:InterruptibleWhile>
-          </Sequence>
-        </Switch>
+                  <Sequence x:Key="CS_09 Caricare Documentazione CAI2" sap:VirtualizedContainerService.HintSize="396,573" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="boolActivityIsPresent" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Evento_Piano-di-lavoro workflow" sap:VirtualizedContainerService.HintSize="354,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Evento_Piano-di-lavoro.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Oggetto" />
+                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_Completa">False</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Piano-di-lavoro_Asign-first workflow" sap:VirtualizedContainerService.HintSize="354,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Logic/GW/GW_Piano-di-lavoro_Asign-first.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="inListOfNames">[New String(){strActivity}.ToList]</InArgument>
+                        <OutArgument x:TypeArguments="x:Boolean" x:Key="outBoolActivityIsPresent">[boolActivityIsPresent]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="outStrActivityName" />
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <ui:InterruptibleWhile Condition="[not(boolActivityIsPresent)]" DisplayName="While" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_5">
+                      <ui:InterruptibleWhile.Body>
+                        <Throw DisplayName="Throw E-1002" Exception="[New BusinessRuleException(String.Format(in_Config(&quot;Message_E-1003&quot;).ToString, {strActivity, strClaimNumber}))]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_6">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Throw>
+                      </ui:InterruptibleWhile.Body>
+                    </ui:InterruptibleWhile>
+                  </Sequence>
+                  <Sequence x:Key="CS_15 Caricare Documentazione NA/NE" sap:VirtualizedContainerService.HintSize="476,838" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="boolActivityIsPresent" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Evento_Piano-di-lavoro workflow" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Evento_Piano-di-lavoro.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Oggetto" />
+                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_Completa">False</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Piano-di-lavoro_Asign-first workflow" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Logic/GW/GW_Piano-di-lavoro_Asign-first.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="inListOfNames">[New String(){"CS_14 Caricare Documentazione CAI1 vs NA/NE"}.ToList]</InArgument>
+                        <OutArgument x:TypeArguments="x:Boolean" x:Key="outBoolActivityIsPresent">[boolActivityIsPresent]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="outStrActivityName" />
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <ui:InterruptibleWhile Condition="[not(boolActivityIsPresent)]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,225" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_6">
+                      <ui:InterruptibleWhile.Body>
+                        <Throw DisplayName="Throw E-1002" Exception="[New BusinessRuleException(String.Format(in_Config(&quot;Message_E-1003&quot;).ToString, {strActivity, strClaimNumber}))]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Throw>
+                      </ui:InterruptibleWhile.Body>
+                    </ui:InterruptibleWhile>
+                    <ui:InterruptibleWhile Condition="[Not(strResponsabilityPercentage.Equals(&quot;Nega evento&quot;) OrElse strResponsabilityPercentage.Equals(&quot;Card non applocabile&quot;))]" DisplayName="While | Check responsability value" sap:VirtualizedContainerService.HintSize="434,225" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+                      <ui:InterruptibleWhile.Body>
+                        <Throw DisplayName="Throw E-1003" Exception="[New BusinessRuleException(in_Config(&quot;Message_E-1003&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Throw>
+                      </ui:InterruptibleWhile.Body>
+                    </ui:InterruptibleWhile>
+                  </Sequence>
+                </Switch>
+              </Sequence>
+            </ActivityAction>
+          </ui:BrowserScope.Body>
+        </ui:BrowserScope>
       </Sequence>
       <FlowStep.Next>
         <FlowDecision x:Name="__ReferenceID6" Condition="[strActivity.Contains(&quot;CS_01&quot;) OrElse&#xA;strActivity.Contains(&quot;CS_09&quot;) OrElse&#xA;strActivity.Contains(&quot;CS_14&quot;)]" DisplayName="General branch" sap:VirtualizedContainerService.HintSize="86,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
