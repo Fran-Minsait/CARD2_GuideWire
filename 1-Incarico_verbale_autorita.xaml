@@ -40,7 +40,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="44">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -86,7 +86,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID10</x:Reference>
+      <x:Reference>__ReferenceID11</x:Reference>
     </Flowchart.StartNode>
     <FlowStep>
       <sap:WorkflowViewStateService.ViewState>
@@ -183,18 +183,18 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Evento_Dettagli-dell-evento workflow" sap:VirtualizedContainerService.HintSize="831,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Evento_Dettagli-dell-evento.xaml">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GW_Evento_Dettagli-dell-evento workflow" sap:VirtualizedContainerService.HintSize="733,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Navigazione\GW\GW_Evento_Dettagli-dell-evento.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <OutArgument x:TypeArguments="x:String" x:Key="outResponsabilita" />
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
-                    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW ClaimCenter" sap:VirtualizedContainerService.HintSize="831,968" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="b7be60fcc3885c1e343f879754d5deed" Selector="&lt;html title='Guidewire ClaimCenter*' /&gt;">
+                    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW ClaimCenter" sap:VirtualizedContainerService.HintSize="733,1081" sap2010:WorkflowViewState.IdRef="BrowserScope_2" Selector="&lt;html title='Guidewire ClaimCenter*' /&gt;">
                       <ui:BrowserScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="797,822" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="699,973" sap2010:WorkflowViewState.IdRef="Sequence_8">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="x:Boolean" Name="boolAuthorityReported" />
                             </Sequence.Variables>
@@ -203,9 +203,9 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Intervento autorità?" sap:VirtualizedContainerService.HintSize="755,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+                            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Intervento autorità?" sap:VirtualizedContainerService.HintSize="657,68" sap2010:WorkflowViewState.IdRef="GetValue_2">
                               <ui:GetValue.Target>
-                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e02348d1-0918-4d8f-a8a3-1370ff23030d" InformativeScreenshot="08249ef7b78afc6b45a6de954f17e5bc" Selector="&lt;webctrl aaname='Intervento Autorità?' tag='LABEL' class='x-form-item-label x-form-item-label-default  ' /&gt;&lt;nav up='1' /&gt;&lt;webctrl tag='DIV' class='x-form-display-field x-form-display-field-default' /&gt;">
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e02348d1-0918-4d8f-a8a3-1370ff23030d" Selector="&lt;webctrl aaname='Intervento Autorità?' tag='LABEL' class='x-form-item-label x-form-item-label-default  ' /&gt;&lt;nav up='1' /&gt;&lt;webctrl tag='DIV' class='x-form-display-field x-form-display-field-default' /&gt;">
                                   <ui:Target.TimeoutMS>
                                     <InArgument x:TypeArguments="x:Int32" />
                                   </ui:Target.TimeoutMS>
@@ -218,7 +218,7 @@
                                 <OutArgument x:TypeArguments="x:String">[strAuthorityIntervention]</OutArgument>
                               </ui:GetValue.Value>
                             </ui:GetValue>
-                            <ui:UiElementExists DisplayName="Element Exists | Authority name" Exists="[boolAuthorityReported]" sap:VirtualizedContainerService.HintSize="755,68" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                            <ui:UiElementExists DisplayName="Element Exists | Authority name" Exists="[boolAuthorityReported]" sap:VirtualizedContainerService.HintSize="657,68" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
                               <ui:UiElementExists.Target>
                                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7ec5bf49-6059-4751-875a-feb78ed58268" Selector="&lt;webctrl aaname='Verbali della polizia' tag='DIV' class='x-form-display-field x-form-display-field-default' /&gt;&lt;nav up='6' /&gt;&lt;webctrl tableCol='2' tag='DIV' class='x-grid-cell-inner ' /&gt;" TimeoutMS="[Convert.ToInt32(in_Config(&quot;TimeoutShort&quot;))]">
                                   <ui:Target.WaitForReady>
@@ -227,36 +227,41 @@
                                 </ui:Target>
                               </ui:UiElementExists.Target>
                             </ui:UiElementExists>
-                            <If Condition="[strAuthorityIntervention.Equals(&quot;Sì&quot;) AndAlso boolAuthorityReported]" DisplayName="If Authority intervented" sap:VirtualizedContainerService.HintSize="755,476" sap2010:WorkflowViewState.IdRef="If_3">
-                              <If.Then>
-                                <Sequence DisplayName="Retrieve Authority name" sap:VirtualizedContainerService.HintSize="376,329" sap2010:WorkflowViewState.IdRef="Sequence_13">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Authority name" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
-                                    <ui:GetValue.Target>
-                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4089e3a0-53e7-4474-9988-0bdf387e11b4" InformativeScreenshot="8124f03c632002782db45cd3e68b489d" Selector="&lt;webctrl aaname='Verbali della polizia' tag='DIV' class='x-form-display-field x-form-display-field-default' /&gt;&lt;nav up='6' /&gt;&lt;webctrl tableCol='2' tag='DIV' class='x-grid-cell-inner ' /&gt;">
-                                        <ui:Target.TimeoutMS>
-                                          <InArgument x:TypeArguments="x:Int32" />
-                                        </ui:Target.TimeoutMS>
-                                        <ui:Target.WaitForReady>
-                                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                                        </ui:Target.WaitForReady>
-                                      </ui:Target>
-                                    </ui:GetValue.Target>
-                                    <ui:GetValue.Value>
-                                      <OutArgument x:TypeArguments="x:String">[strAuthotityName]</OutArgument>
-                                    </ui:GetValue.Value>
-                                  </ui:GetValue>
-                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Authority involved: &quot; + strAuthotityName]" />
-                                </Sequence>
-                              </If.Then>
-                              <If.Else>
-                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Authority not involved, or not reported.&quot;]" />
-                              </If.Else>
-                            </If>
+                            <ui:InterruptibleWhile Condition="[strAuthorityIntervention.Equals(&quot;Sì&quot;)]" DisplayName="If (Only True) | Authority involved" sap:VirtualizedContainerService.HintSize="657,665" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+                              <ui:InterruptibleWhile.Body>
+                                <If Condition="[boolAuthorityReported]" DisplayName="If | Authority is available" sap:VirtualizedContainerService.HintSize="621,500" sap2010:WorkflowViewState.IdRef="If_3">
+                                  <If.Then>
+                                    <Sequence DisplayName="Retrieve Authority name" sap:VirtualizedContainerService.HintSize="376,353" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text | Authority name" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4089e3a0-53e7-4474-9988-0bdf387e11b4" Selector="&lt;webctrl aaname='Verbali della polizia' tag='DIV' class='x-form-display-field x-form-display-field-default' /&gt;&lt;nav up='6' /&gt;&lt;webctrl tableCol='2' tag='DIV' class='x-grid-cell-inner ' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:String">[strAuthotityName]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Authority involved: &quot; + strAuthotityName]" />
+                                      <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_2" />
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Throw DisplayName="Throw E-10xx" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                                  </If.Else>
+                                </If>
+                              </ui:InterruptibleWhile.Body>
+                            </ui:InterruptibleWhile>
                           </Sequence>
                         </ActivityAction>
                       </ui:BrowserScope.Body>
@@ -269,7 +274,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <av:Point x:Key="ShapeLocation">238.5,723</av:Point>
                           <av:Size x:Key="ShapeSize">123,87</av:Size>
-                          <av:PointCollection x:Key="FalseConnector">361.5,766.5 421.5,766.5</av:PointCollection>
+                          <av:PointCollection x:Key="FalseConnector">361.5,766.5 411.5,766.5</av:PointCollection>
                           <av:PointCollection x:Key="TrueConnector">238.5,766.5 210,766.5 210,822.54 300,822.54 300,852.54</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
@@ -348,7 +353,7 @@
                                       <av:Size x:Key="ShapeSize">200,66</av:Size>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Sequence DisplayName="Create new Incarico (Richiesta Verbale)" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                  <Sequence DisplayName="Create new Incarico (Richiesta Verbale)" sap:VirtualizedContainerService.HintSize="476,2104" sap2010:WorkflowViewState.IdRef="Sequence_11">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -360,19 +365,19 @@
                                         <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                       </ui:InvokeWorkflowFile.Arguments>
                                     </ui:InvokeWorkflowFile>
-                                    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW ClaimCenter" sap:VirtualizedContainerService.HintSize="434,2094" sap2010:WorkflowViewState.IdRef="BrowserScope_4" InformativeScreenshot="06a7579833bbc6d9a88196b6d31685e2" Selector="&lt;html title='Guidewire ClaimCenter*' /&gt;">
+                                    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | GW ClaimCenter" sap:VirtualizedContainerService.HintSize="434,1790" sap2010:WorkflowViewState.IdRef="BrowserScope_4" Selector="&lt;html title='Guidewire ClaimCenter*' /&gt;">
                                       <ui:BrowserScope.Body>
                                         <ActivityAction x:TypeArguments="x:Object">
                                           <ActivityAction.Argument>
                                             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                                           </ActivityAction.Argument>
-                                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="382,1948" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="382,1682" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Incarichi da effectuare menu" sap:VirtualizedContainerService.HintSize="340,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Incarichi da effectuare menu" sap:VirtualizedContainerService.HintSize="340,68" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                                               <ui:Click.CursorPosition>
                                                 <ui:CursorPosition Position="Center">
                                                   <ui:CursorPosition.OffsetX>
@@ -384,7 +389,7 @@
                                                 </ui:CursorPosition>
                                               </ui:Click.CursorPosition>
                                               <ui:Click.Target>
-                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cd7d5f85-a974-49f9-829d-0986016a2e2c" InformativeScreenshot="f827c3d9d64e8cb8b68a6278cbce2e3f" Selector="&lt;webctrl id='NewServiceRequest:NewServiceRequestScreen:NewServiceRequestDV:Se*' isleaf='1' parentid='NewServiceRequest:NewServiceRequestScreen:NewServiceRequestDV:Se*' tableRow='2' tag='DIV' /&gt;">
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cd7d5f85-a974-49f9-829d-0986016a2e2c" Selector="&lt;webctrl id='NewServiceRequest:NewServiceRequestScreen:NewServiceRequestDV:Se*' isleaf='1' parentid='NewServiceRequest:NewServiceRequestScreen:NewServiceRequestDV:Se*' tableRow='2' tag='DIV' /&gt;">
                                                   <ui:Target.TimeoutMS>
                                                     <InArgument x:TypeArguments="x:Int32" />
                                                   </ui:Target.TimeoutMS>
@@ -394,7 +399,7 @@
                                                 </ui:Target>
                                               </ui:Click.Target>
                                             </ui:Click>
-                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Incarichi da effectuare option" sap:VirtualizedContainerService.HintSize="340,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Incarichi da effectuare option" sap:VirtualizedContainerService.HintSize="340,68" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
                                               <ui:Click.CursorPosition>
                                                 <ui:CursorPosition Position="Center">
                                                   <ui:CursorPosition.OffsetX>
@@ -406,7 +411,7 @@
                                                 </ui:CursorPosition>
                                               </ui:Click.CursorPosition>
                                               <ui:Click.Target>
-                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2d5b42c7-9775-4884-9f11-772011265c51" InformativeScreenshot="7c973991c8637287adc58d35cecb5043" Selector="&lt;webctrl tag='LI' aaname='Richiesta Verbale' class='x-boundlist-item' /&gt;">
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2d5b42c7-9775-4884-9f11-772011265c51" Selector="&lt;webctrl tag='LI' aaname='Richiesta Verbale' class='x-boundlist-item' /&gt;">
                                                   <ui:Target.TimeoutMS>
                                                     <InArgument x:TypeArguments="x:Int32" />
                                                   </ui:Target.TimeoutMS>
@@ -428,7 +433,7 @@
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                             </ui:InvokeWorkflowFile>
-                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Forza dell'ordeline menu" sap:VirtualizedContainerService.HintSize="340,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Forza dell'ordeline menu" sap:VirtualizedContainerService.HintSize="340,68" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                                               <ui:Click.CursorPosition>
                                                 <ui:CursorPosition Position="Center">
                                                   <ui:CursorPosition.OffsetX>
@@ -440,14 +445,14 @@
                                                 </ui:CursorPosition>
                                               </ui:Click.CursorPosition>
                                               <ui:Click.Target>
-                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1a4ad469-7583-4822-adac-194187258180" InformativeScreenshot="abf6475ca5399663213ec3b50319c311" Selector="&lt;webctrl id='NewServiceRequest:NewServiceRequestScreen:NewServiceRequestDV:Re*' isleaf='1' parentid='NewServiceRequest:NewServiceRequestScreen:NewServiceRequestDV:Re*' tag='DIV' /&gt;" TimeoutMS="3000">
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1a4ad469-7583-4822-adac-194187258180" Selector="&lt;webctrl id='NewServiceRequest:NewServiceRequestScreen:NewServiceRequestDV:Re*' isleaf='1' parentid='NewServiceRequest:NewServiceRequestScreen:NewServiceRequestDV:Re*' tag='DIV' /&gt;" TimeoutMS="3000">
                                                   <ui:Target.WaitForReady>
                                                     <InArgument x:TypeArguments="ui:WaitForReady" />
                                                   </ui:Target.WaitForReady>
                                                 </ui:Target>
                                               </ui:Click.Target>
                                             </ui:Click>
-                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Forza dell'ordeline option" sap:VirtualizedContainerService.HintSize="340,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Forza dell'ordeline option" sap:VirtualizedContainerService.HintSize="340,68" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
                                               <ui:Click.CursorPosition>
                                                 <ui:CursorPosition Position="Center">
                                                   <ui:CursorPosition.OffsetX>
@@ -459,7 +464,7 @@
                                                 </ui:CursorPosition>
                                               </ui:Click.CursorPosition>
                                               <ui:Click.Target>
-                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4d8c4123-332c-4888-9500-b0b721a8e509" InformativeScreenshot="4c91c3f0024f062f27e0dad629501445" Selector="&lt;webctrl aaname='*{{strAuthotityName}}*' class='x-boundlist-item' /&gt;">
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4d8c4123-332c-4888-9500-b0b721a8e509" Selector="&lt;webctrl aaname='*{{strAuthotityName}}*' class='x-boundlist-item' /&gt;">
                                                   <ui:Target.TimeoutMS>
                                                     <InArgument x:TypeArguments="x:Int32" />
                                                   </ui:Target.TimeoutMS>
@@ -481,7 +486,7 @@
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                             </ui:InvokeWorkflowFile>
-                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Avvia circerca" sap:VirtualizedContainerService.HintSize="340,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Avvia circerca" sap:VirtualizedContainerService.HintSize="340,68" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                                               <ui:Click.CursorPosition>
                                                 <ui:CursorPosition Position="Center">
                                                   <ui:CursorPosition.OffsetX>
@@ -493,7 +498,7 @@
                                                 </ui:CursorPosition>
                                               </ui:Click.CursorPosition>
                                               <ui:Click.Target>
-                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a62c887b-4fab-49db-9ddd-01c93174f687" InformativeScreenshot="3ccae6dfb557cf7d09984a0a778d71d8" Selector="&lt;webctrl id='NewServiceRequest:NewServiceRequestScreen:NewServiceRequestDV:se*' tag='A' /&gt;">
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a62c887b-4fab-49db-9ddd-01c93174f687" Selector="&lt;webctrl id='NewServiceRequest:NewServiceRequestScreen:NewServiceRequestDV:se*' tag='A' /&gt;">
                                                   <ui:Target.TimeoutMS>
                                                     <InArgument x:TypeArguments="x:Int32" />
                                                   </ui:Target.TimeoutMS>
@@ -535,7 +540,7 @@
                                                 </Sequence>
                                               </ui:InterruptibleWhile.Body>
                                             </ui:InterruptibleWhile>
-                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | 'Seleziona' on Vendor" sap:VirtualizedContainerService.HintSize="340,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | 'Seleziona' on Vendor" sap:VirtualizedContainerService.HintSize="340,68" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
                                               <ui:Click.CursorPosition>
                                                 <ui:CursorPosition Position="Center">
                                                   <ui:CursorPosition.OffsetX>
@@ -547,7 +552,7 @@
                                                 </ui:CursorPosition>
                                               </ui:Click.CursorPosition>
                                               <ui:Click.Target>
-                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="233a5a42-2987-430d-8ed0-77cda1318181" InformativeScreenshot="eff3a7671d1e8fb84f0863ab93f445a9" Selector="&lt;webctrl tag='DIV' aaname='{{strVendor}}' idx='1' /&gt;&lt;nav up='2' /&gt;&lt;webctrl aaname='Seleziona' tag='A' /&gt;">
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="233a5a42-2987-430d-8ed0-77cda1318181" Selector="&lt;webctrl tag='DIV' aaname='{{strVendor}}' idx='1' /&gt;&lt;nav up='2' /&gt;&lt;webctrl aaname='Seleziona' tag='A' /&gt;">
                                                   <ui:Target.TimeoutMS>
                                                     <InArgument x:TypeArguments="x:Int32" />
                                                   </ui:Target.TimeoutMS>
@@ -569,7 +574,7 @@
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                             </ui:InvokeWorkflowFile>
-                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Incarica" sap:VirtualizedContainerService.HintSize="340,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click | Incarica" sap:VirtualizedContainerService.HintSize="340,68" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
                                               <ui:Click.CursorPosition>
                                                 <ui:CursorPosition Position="Center">
                                                   <ui:CursorPosition.OffsetX>
@@ -581,7 +586,7 @@
                                                 </ui:CursorPosition>
                                               </ui:Click.CursorPosition>
                                               <ui:Click.Target>
-                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="08ce1555-0d98-4b1c-b296-32bcf18b92ce" InformativeScreenshot="965d552d442e86eaa776d64447f31b6e" Selector="&lt;webctrl aaname='Incarica' id='NewServiceRequest:NewServiceRequestScreen:NewServiceRequestDV_tb*' tag='A' /&gt;">
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="08ce1555-0d98-4b1c-b296-32bcf18b92ce" Selector="&lt;webctrl aaname='Incarica' id='NewServiceRequest:NewServiceRequestScreen:NewServiceRequestDV_tb*' tag='A' /&gt;">
                                                   <ui:Target.TimeoutMS>
                                                     <InArgument x:TypeArguments="x:Int32" />
                                                   </ui:Target.TimeoutMS>
@@ -615,20 +620,32 @@
                         </FlowStep>
                       </FlowDecision.True>
                       <FlowDecision.False>
-                        <FlowStep x:Name="__ReferenceID5">
+                        <FlowStep x:Name="__ReferenceID10">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:Point x:Key="ShapeLocation">421.5,755.5</av:Point>
-                              <av:Size x:Key="ShapeSize">200,22</av:Size>
+                              <av:Point x:Key="ShapeLocation">411.5,741</av:Point>
+                              <av:Size x:Key="ShapeSize">200,51</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">511.5,792 511.5,842</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Throw DisplayName="Throw E-1004" Exception="[New BusinessRuleException(in_Config(&quot;Message_E-1004&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_3">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </Throw>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Authority not involved. Task ends.&quot;]" />
+                          <FlowStep.Next>
+                            <FlowStep x:Name="__ReferenceID5">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">411.5,842</av:Point>
+                                  <av:Size x:Key="ShapeSize">200,22</av:Size>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Throw DisplayName="Throw E-1004" Exception="[New BusinessRuleException(in_Config(&quot;Message_E-1004&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_3">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Throw>
+                            </FlowStep>
+                          </FlowStep.Next>
                         </FlowStep>
                       </FlowDecision.False>
                     </FlowDecision>
@@ -650,7 +667,7 @@
     <x:Reference>__ReferenceID7</x:Reference>
     <x:Reference>__ReferenceID8</x:Reference>
     <x:Reference>__ReferenceID9</x:Reference>
-    <FlowStep x:Name="__ReferenceID10">
+    <FlowStep x:Name="__ReferenceID11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
@@ -669,5 +686,6 @@
         <x:Reference>__ReferenceID1</x:Reference>
       </FlowStep.Next>
     </FlowStep>
+    <x:Reference>__ReferenceID10</x:Reference>
   </Flowchart>
 </Activity>
