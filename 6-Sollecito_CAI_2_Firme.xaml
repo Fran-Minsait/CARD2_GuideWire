@@ -815,7 +815,7 @@
                                                       </ui:Target>
                                                     </ui:Click.Target>
                                                   </ui:Click>
-                                                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser | Rotomail" sap:VirtualizedContainerService.HintSize="434,994" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="96902afb34467e98d23619224de754ab" Selector="&lt;html app='chrome.exe' title='RotoMail - Lettere Sinistri Verti' /&gt;">
+                                                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser | Rotomail" sap:VirtualizedContainerService.HintSize="434,994" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="96902afb34467e98d23619224de754ab" Selector="&lt;html app='chrome.exe' title='RotoMail - Lettere Sinistri Verti' /&gt;">
                                                     <ui:BrowserScope.Body>
                                                       <ActivityAction x:TypeArguments="x:Object">
                                                         <ActivityAction.Argument>
