@@ -27,7 +27,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -47,6 +47,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="TestSOGESA" sap:VirtualizedContainerService.HintSize="421,534" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -60,32 +61,20 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SOGESA_LogIn workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Navigazione\SOGESA\SOGESA_LogIn.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strPortalURL">
-          <Literal x:TypeArguments="x:String">http://portal.sogesa.net/</Literal>
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strUsername">
-          <Literal x:TypeArguments="x:String">directline</Literal>
-        </InArgument>
-        <InArgument x:TypeArguments="ss:SecureString" x:Key="in_secPassword">
-          <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="(New System.Net.NetworkCredential(&quot;&quot;,&quot;card2017&quot;)).SecurePassword" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strPortalURL">http://portal.sogesa.net/</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strUsername">directline</InArgument>
+        <InArgument x:TypeArguments="ss:SecureString" x:Key="in_secPassword">[(New System.Net.NetworkCredential("","card2017")).SecurePassword]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SOGESA_NavToElencoIncarichi workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Navigazione\SOGESA\SOGESA_NavToElencoIncarichi.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strPortalURL">
-          <Literal x:TypeArguments="x:String">http://portal.sogesa.net/</Literal>
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strPortalURL">http://portal.sogesa.net/</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SOGESA_SearchNumSinistro workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Navigazione\SOGESA\SOGESA_SearchNumSinistro.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strClaimNumber">
-          <Literal x:TypeArguments="x:String">3084737</Literal>
-        </InArgument>
-        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_boolHasDocuments">
-          <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boola" />
-        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strClaimNumber">3084737</InArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_boolHasDocuments">[boola]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="379,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[boola.ToString]" />
